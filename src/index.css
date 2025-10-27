@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-gray-900 text-gray-100;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    .neon-border {
+        @apply border-2 border-neon-blue;
+        box-shadow: 0 0 5px theme("colors.neon.blue"),
+        inset 0 0 5px theme("colors.neon.blue");
+    }
+
+    .shadow-inner-custom {
+        box-shadow: 
+            inset 0 4px 16px rgba(0, 0, 0, 0.6),
+            inset 0 8px 24px rgba(0, 0, 0, 0.4),
+            0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .neon-text {
+        @apply text-neon-blue;
+        text-shadow: 0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor;
+    }
+
+    .glass-card {
+        @apply bg-gray-800 bg-opacity-30 backdrop-blur-lg border border-gray-700;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .btn-neon {
+        @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+        @apply border-2 border-neon-blue text-neon-blue;
+        @apply hover:bg-neon-blue hover:text-gray-900 hover:shadow-neon-blue;
+    }
+
+    .section-link {
+        @apply relative px-4 py-2 text-gray-300 transition-all duration-300;
+        @apply hover:text-neon-pink cursor-pointer;
+    }
+
+    .section-link::after {
+        content: '';
+        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-neon-pink;
+        @apply transition-all duration-300;
+        box-shadow: 0 0 10px theme("colors.neon.pink");
+    }
+
+    .section-link:hover::after {
+        @apply w-full;
+    }
+
+    .project-card {
+        @apply glass-card rounded-xl p-6 transition-all duration-500;
+        @apply hover:scale-105 hover:border-neon-purple cursor-pointer;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 0 30px rgba(157, 0, 255, 0.5);
+    }
+
+    .skill-badge {
+        @apply px-4 py-2 rounded-full text-sm font-medium;
+        @apply bg-gray-800 border border-neon-green text-neon-green;
+        @apply transition-all duration-300 hover:bg-neon-green hover:text-gray-900;
+        display: inline-block;
+        white-space: nowrap;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .modal-overlay {
+        @apply fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm;
+        @apply flex items-center justify-center z-50;
+    }
+
+    .modal-content {
+        @apply glass-card rounded-2xl p-8 max-w-2xl w-full mx-4;
+        @apply border-2 border-neon-purple shadow-neon-purple;
+        @apply animate-scale-in;
+    }
+}
+
+@layer utilities {
+    .text-gradient {
+        @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .animate-glow-cycle {
+        animation: glowCycle 3s ease-in-out infinite;
+    }
+}
+
+@keyframes glowCycle {
+    0%, 100% { filter: drop-shadow(0 0 10px theme("colors.neon.blue")); }
+    33% { filter: drop-shadow(0 0 10px theme("colors.neon.pink")); }
+    66% { filter: drop-shadow(0 0 10px theme("colors.neon.purple")); }
+}
+.toggle-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.toggle-slot {
+    font-size: 10px;
+    position: relative;
+    height: 3.5em;
+    width: 7em;
+    border: 0px solid transparent;
+    border-radius: 10em;
+    background-color: white;
+    transition: background-color 250ms;
+}
+
+.toggle-checkbox:checked ~ .toggle-slot {
+    background-color: #374151;
+}
+
+.toggle-button {
+    transform: translate(0.3em, 0.25em);
+    position: absolute;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    background-color: #ffeccf;
+    box-shadow: inset 0px 0px 0px 0.75em #ffbb52;
+    transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+    background-color: #485367;
+    box-shadow: inset 0px 0px 0px 0.75em white;
+    transform: translate(3.65em, 0.25em);
+}
+
+.sun-icon {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    color: #ffbb52;
+}
+
+.sun-icon-wrapper {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    opacity: 1;
+    transform: translate(2em, 2em) rotate(15deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .sun-icon-wrapper {
+    opacity: 0;
+    transform: translate(3em, 2em) rotate(0deg);
+}
+
+.moon-icon {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    color: white;
+}
+
+.moon-icon-wrapper {
+    position: absolute;
+    height: 6em;
+    width: 6em;
+    opacity: 0;
+    transform: translate(11em, 2em) rotate(0deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .moon-icon-wrapper {
+    opacity: 1;
+    transform: translate(2em, 2em) rotate(-15deg);
+}

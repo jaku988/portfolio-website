@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Twoje Imię</title>
+    <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body class="bg-gray-900 overflow-x-hidden">
+    
+    <!-- Nawigacja -->
+    <nav class="fixed top-0 w-full z-40 glass-card border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+
+                <!-- ukryty element dla balansu -->
+                <div class="hidden md:block w-24"></div>
+
+                <!-- przyciski nawigacji -->
+                <div class="hidden md:flex space-x-6" id="nav-menu">
+                    <a href="#about" class="section-link">O mnie</a>
+                    <a href="#skills" class="section-link">Umiejętności</a>
+                    <a href="#projects" class="section-link">Projekty</a>
+                    <a href="#experience" class="section-link">Doświadczenie</a>
+                    <a href="#education" class="section-link">Edukacja</a>
+                    <a href="#contact" class="section-link">Kontakt</a>
+                </div>
+
+                <!-- przycisk przełączania motywu -->
+                <div class="hidden md:block">
+                    <label>
+                        <input class="toggle-checkbox" type="checkbox" id="toggle-dark">
+                        <div class="toggle-slot">
+                            <div class="sun-icon-wrapper">
+                                <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+                            </div>
+                            <div class="toggle-button"></div>
+                            <div class="moon-icon-wrapper">
+                                <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- przycisk mobile menu -->
+            <button class="md:hidden text-neon-blue" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-[60vh] flex items-center justify-center relative pt-20">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-40 left-20 w-24 h-24 bg-neon-blue rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
+            <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-neon-blue rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style="animation-delay: 1.3s"></div>
+            <div class="absolute top-1/3 right-1/2 w-24 h-24 bg-neon-green rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style="animation-delay: 0.5s"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-neon-purple rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-20 left-1/2 w-24 h-24 bg-neon-pink rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-10 left-40 w-24 h-24 bg-neon-pink rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-40 right-1/4 w-24 h-24 bg-neon-purple rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto p-6 mt-5 z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between space-x-16 max-w-6xl mx-auto">
+
+                <!-- lewa strona -->
+                <div class="w-full md:max-w-4xl bg-gradient-to-br rounded-2xl p-8 shadow-inner-custom">
+                    <div class="text-left animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                            <span class="text-gradient text-blue-500">Jan Kulak</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-300 mb-4">Junior Backend Developer</p>
+                        <p class="text-lg text-gray-400 mb-8">
+                            Tworzę nowoczesne, responsywne aplikacje webowe z pasją do innowacji
+                        </p>
+                        <div class="flex gap-4 flex-wrap">
+                            <a href="#projects" class="btn-neon">Zobacz projekty</a>
+                            <a href="#contact" class="btn-neon border-neon-pink text-neon-pink hover:bg-neon-pink hover:shadow-neon-pink">Kontakt</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- prawa strona -->
+
+                <div class="w-full md:w-1/2 flex justify-center md:justify-end animate-fade-in">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-neon-blue shadow-neon-blue animate-glow">
+                            <img src="static/profile.jpg" alt="Jan Kulak" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dane Osobowe -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text animate-fade-in">
+                O mnie
+            </h2>
+            <div class="max-w-4xl mx-auto glass-card rounded-2xl p-8 animate-slide-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-neon-blue mb-4">Dane osobowe</h3>
+                        <div class="space-y-3 text-gray-300">
+                            <p><span class="text-neon-pink">Imię i nazwisko:</span> Jan Kulak</p>
+                            <p><span class="text-neon-pink">Tytuł:</span> Junior Backend Developer</p>
+                            <p><span class="text-neon-pink">Lokalizacja:</span> Łódź, Polska</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-neon-purple mb-4">Bio</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Pasjonuję się tworzeniem nowoczesnych aplikacji webowych.
+                            Specjalizuję się w React, Django i technologiach frontendowych.
+                            Zawsze gotowy na nowe wyzwania i ciągły rozwój.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Umiejętności -->
+    <section id="skills" class="py-20 bg-gray-800 bg-opacity-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center neon-text mb-16">
+                Umiejętności
+            </h2>
+            <!-- pojemnik na kategorie -->
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <!-- kategoria frontend -->
+                <div class="glass-card rounded-xl p-6 animate-fade-in">
+                    <h3 class="neon-text text-2xl mb-6 font-bold">
+                        Frontend
+                    </h3>
+                    <!-- skille -->
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">CSS</span>
+                        <span class="skill-badge">CSS</span>
+                        <span class="skill-badge">CSS</span>
+                        <span class="skill-badge">CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projekty -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text">
+                Projekty
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Projekt 1 -->
+                <div class="project-card" onclick="openModal('project1')">
+                    <div class="h-48 bg-gradient-to-br from-neon-blue to-neon-purple rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-neon-blue mb-2">E-commerce Platform</h3>
+                    <p class="text-gray-400 mb-4">Pełnofunkcjonalna platforma e-commerce z Django i React</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">React</span>
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">Django</span>
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <!-- Projekt 2 -->
+                <div class="project-card" onclick="openModal('project2')">
+                    <div class="h-48 bg-gradient-to-br from-neon-pink to-neon-purple rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-neon-pink mb-2">Dashboard Analytics</h3>
+                    <p class="text-gray-400 mb-4">Zaawansowany dashboard do wizualizacji danych</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">Vue.js</span>
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">Chart.js</span>
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">REST API</span>
+                    </div>
+                </div>
+
+                <!-- Projekt 3 -->
+                <div class="project-card" onclick="openModal('project3')">
+                    <div class="h-48 bg-gradient-to-br from-neon-green to-neon-blue rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-neon-green mb-2">Social Media App</h3>
+                    <p class="text-gray-400 mb-4">Aplikacja społecznościowa z real-time chat</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">Next.js</span>
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">WebSocket</span>
+                        <span class="text-xs px-2 py-1 bg-gray-700 rounded text-neon-green">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doświadczenie -->
+    <section id="experience" class="py-20 bg-gray-800 bg-opacity-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text">
+                Doświadczenie
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Pozycja 1 -->
+                <div class="glass-card rounded-xl p-6 border-l-4 border-neon-blue hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-neon-blue">Senior Full Stack Developer</h3>
+                            <p class="text-xl text-gray-300">Tech Company Sp. z o.o.</p>
+                        </div>
+                        <span class="text-neon-pink font-semibold">2022 - obecnie</span>
+                    </div>
+                    <p class="text-gray-400 mb-3">
+                        Rozwój i utrzymanie aplikacji webowych. Prowadzenie zespołu developerów.
+                        Implementacja nowych funkcjonalności i optymalizacja wydajności.
+                    </p>
+                    <p class="text-sm text-neon-green">Warszawa, Polska</p>
+                </div>
+
+                <!-- Pozycja 2 -->
+                <div class="glass-card rounded-xl p-6 border-l-4 border-neon-purple hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-neon-purple">Full Stack Developer</h3>
+                            <p class="text-xl text-gray-300">Startup Solutions</p>
+                        </div>
+                        <span class="text-neon-pink font-semibold">2020 - 2022</span>
+                    </div>
+                    <p class="text-gray-400 mb-3">
+                        Tworzenie aplikacji webowych od podstaw. Współpraca z zespołem designerów.
+                        Implementacja responsywnych interfejsów użytkownika.
+                    </p>
+                    <p class="text-sm text-neon-green">Kraków, Polska</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edukacja -->
+    <section id="education" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text">
+                Edukacja
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Uczelnia -->
+                <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-neon-pink">Informatyka</h3>
+                            <p class="text-xl text-gray-300">Politechnika Warszawska</p>
+                        </div>
+                        <span class="text-neon-blue font-semibold">2016 - 2020</span>
+                    </div>
+                    <p class="text-gray-400 mb-3">
+                        Inżynier / Magister - Tytuł: Inżynier Informatyki
+                    </p>
+                    <p class="text-sm text-neon-green">Specjalizacja: Aplikacje internetowe</p>
+                </div>
+
+                <!-- Kursy -->
+                <div class="glass-card rounded-xl p-6 border-l-4 border-neon-green hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold text-neon-green mb-4">Dodatkowe kursy</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-neon-blue rounded-full mr-3"></span>
+                            Advanced React Patterns - 2023
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-neon-pink rounded-full mr-3"></span>
+                            Django for Professionals - 2022
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-neon-purple rounded-full mr-3"></span>
+                            UI/UX Design Masterclass - 2021
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact" class="py-20 bg-gray-800 bg-opacity-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text">
+                Kontakt
+            </h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <!-- Dane kontaktowe -->
+                <div class="glass-card rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-neon-blue mb-6">Dane kontaktowe</h3>
+                    <div class="space-y-4">
+                        <a href="mailto:email@example.com" class="flex items-center text-gray-300 hover:text-neon-pink transition-colors">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            email@example.com
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="flex items-center text-gray-300 hover:text-neon-blue transition-colors">
+                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com" target="_blank" class="flex items-center text-gray-300 hover:text-neon-purple transition-colors">
+                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Formularz kontaktowy -->
+                <div class="glass-card rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-neon-pink mb-6">Wyślij wiadomość</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Imię" required
+                                   class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-neon-blue focus:outline-none text-white transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" required
+                                   class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-neon-blue focus:outline-none text-white transition-colors">
+                        </div>
+                        <div>
+                            <textarea placeholder="Wiadomość" rows="4" required
+                                      class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-neon-blue focus:outline-none text-white transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="btn-neon w-full border-neon-pink text-neon-pink hover:bg-neon-pink hover:shadow-neon-pink">
+                            Wyślij
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">
+                &copy; 2025 <span class="text-neon-blue">Jan Kulak</span>. Wszystkie prawa zastrzeżone.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal dla projektów -->
+    <div id="modal" class="hidden modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-start mb-6">
+                <h3 id="modal-title" class="text-3xl font-bold text-gradient"></h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-neon-pink transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-body" class="text-gray-300"></div>
+            <div class="mt-6 flex gap-4">
+                <a id="modal-github" href="#" target="_blank" class="btn-neon flex-1 text-center">
+                    GitHub
+                </a>
+                <a id="modal-demo" href="#" target="_blank" class="btn-neon border-neon-purple text-neon-purple hover:bg-neon-purple hover:shadow-neon-purple flex-1 text-center">
+                    Demo na żywo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/script.js"></script>
+</body>
+</html>
