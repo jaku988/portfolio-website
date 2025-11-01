@@ -92,7 +92,6 @@ const projectData = {
             <p>React, Django REST Framework, PostgreSQL, Redis, Stripe API, Tailwind CSS</p>
         `,
         github: 'https://github.com/yourusername/ecommerce',
-        demo: 'https://demo.example.com'
     },
     project2: {
         title: 'Dashboard Analytics',
@@ -110,7 +109,6 @@ const projectData = {
             <p>Vue.js 3, Chart.js, D3.js, Node.js, Express, MongoDB, WebSocket</p>
         `,
         github: 'https://github.com/yourusername/dashboard',
-        demo: 'https://dashboard-demo.example.com'
     },
     project3: {
         title: 'Social Media App',
@@ -128,7 +126,6 @@ const projectData = {
             <p>Next.js, Socket.io, MongoDB, Cloudinary, NextAuth, Tailwind CSS</p>
         `,
         github: 'https://github.com/yourusername/social-app',
-        demo: 'https://social-demo.example.com'
     }
 };
 
@@ -141,7 +138,6 @@ function openModal(projectId) {
         document.getElementById('modal-title').textContent = project.title;
         document.getElementById('modal-body').innerHTML = project.description;
         document.getElementById('modal-github').href = project.github;
-        document.getElementById('modal-demo').href = project.demo;
 
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';

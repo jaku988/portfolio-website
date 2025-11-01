@@ -1090,6 +1090,10 @@ body {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -1462,11 +1466,6 @@ body {
   line-height: 2rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -1736,11 +1735,6 @@ body {
   background-color: rgb(255 0 255 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-neon-purple:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(157 0 255 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:text-neon-blue:hover {
   --tw-text-opacity: 1;
   color: rgb(0 240 255 / var(--tw-text-opacity, 1));
@@ -1760,21 +1754,7 @@ body {
   --tw-shadow: 0 0 5px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
   --tw-shadow-colored: 0 0 5px var(--tw-shadow-color), 0 0 20px var(--tw-shadow-color), 0 0 40px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.hover\:shadow-neon-purple:hover {
-  --tw-shadow: 0 0 5px #9d00ff, 0 0 20px #9d00ff, 0 0 40px #9d00ff;
-  --tw-shadow-colored: 0 0 5px var(--tw-shadow-color), 0 0 20px var(--tw-shadow-color), 0 0 40px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.hover\:shadow-neon-pink:hover {
   --tw-shadow-color: #ff00ff;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.hover\:shadow-neon-purple:hover {
-  --tw-shadow-color: #9d00ff;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
