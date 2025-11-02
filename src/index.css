@@ -71,13 +71,7 @@
     }
 
     .skill-badge {
-        @apply px-4 py-2 rounded-full text-sm font-medium;
-        @apply bg-gray-800 border border-neon-green text-neon-green;
-        @apply transition-all duration-300 hover:bg-neon-green hover:text-gray-900;
-        display: inline-block;
-        white-space: nowrap;
-        white-space: nowrap;
-        flex-shrink: 0;
+        @apply cursor-pointer hover:animate-pulse;
     }
 
     .modal-overlay {

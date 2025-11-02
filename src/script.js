@@ -74,6 +74,91 @@ document.querySelectorAll('section, .glass-card, .project-card').forEach(el => {
     observer.observe(el);
 });
 
+// Dane Umiejętności
+const skillsData = {
+    CSS: {
+        description: `
+            <div class="flex justify-end">
+                <button onclick="closeSkillModal()" class="text-gray-400 hover:text-neon-pink transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-col justify-center items-center gap-8">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-32 h-32 bg-gradient-to-tr from-white to-blue-300 rounded-full flex items-center justify-center p-4">
+                        <svg viewBox="0 0 128 128">
+                            <path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"></path><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"></path><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"></path><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"></path><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"></path><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"></path>
+                        </svg>
+                    </div>
+                    <div><p class="neon-text text-3xl">CSS</p></div>
+                </div>
+            </div>
+        `
+    },
+    JavaScript: {
+        description: `
+        `
+    },
+    React: {
+        description: `
+        `
+    },
+    Tailwind: {
+        description: `
+        `
+    },
+    Tkinter: {
+        description: `
+        `
+    },
+    Python: {
+        description: `
+        `
+    },
+    Java: {
+        description: `
+        `
+    },
+    ASP_NET: {
+        description: `
+        `
+    },
+    REST_API: {
+        description: `
+        `
+    },
+    Oracle: {
+        description: `
+        `
+    },
+    Postgres: {
+        description: `
+        `
+    },
+    Linux: {
+        description: `
+        `
+    },
+    GitHub: {
+        description: `
+        `
+    },
+    Docker: {
+        description: `
+        `
+    },
+    JetBrains: {
+        description: `
+        `
+    },
+    Postman: {
+        description: `
+        `
+    },
+}
+
 // Dane projektów
 const projectData = {
     project1: {
@@ -130,23 +215,43 @@ const projectData = {
 };
 
 // Modal funkcje
-function openModal(projectId) {
-    const modal = document.getElementById('modal');
+function openProjectModal(projectId) {
+    const modal = document.getElementById('project-modal');
     const project = projectData[projectId];
 
     if (project) {
-        document.getElementById('modal-title').textContent = project.title;
-        document.getElementById('modal-body').innerHTML = project.description;
-        document.getElementById('modal-github').href = project.github;
+        document.getElementById('project-modal-title').textContent = project.title;
+        document.getElementById('project-modal-body').innerHTML = project.description;
+        document.getElementById('project-modal-github').href = project.github;
 
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     }
 }
 
-function closeModal(event) {
-    const modal = document.getElementById('modal');
+function closeProjectModal(event) {
+    const modal = document.getElementById('project-modal');
     if (!event || event.target === modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function openSkillModal(skillId) {
+    const modal = document.getElementById('skill-modal')
+    const skill = skillsData[skillId];
+
+    if(skill){
+        document.getElementById('skill-modal-body').innerHTML = skill.description;
+    }
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+}
+
+function closeSkillModal(event){
+    const modal = document.getElementById('skill-modal');
+    if(!event || event.target === modal){
         modal.classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
@@ -155,7 +260,8 @@ function closeModal(event) {
 // ESC key to close modal
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        closeModal();
+        closeProjectModal();
+        closeSkillModal();
     }
 });
 

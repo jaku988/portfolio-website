@@ -719,6 +719,20 @@ body {
   box-shadow: 0 0 30px rgba(157, 0, 255, 0.5);
 }
 
+.skill-badge {
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.skill-badge:hover {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0px;
@@ -936,6 +950,10 @@ body {
   height: 6rem;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .h-48 {
   height: 12rem;
 }
@@ -970,6 +988,10 @@ body {
 
 .w-24 {
   width: 6rem;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-6 {
@@ -1464,6 +1486,11 @@ body {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-5xl {
