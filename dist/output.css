@@ -1261,11 +1261,6 @@ body {
   border-color: rgb(31 41 55 / var(--tw-border-opacity, 1));
 }
 
-.border-lime-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(132 204 22 / var(--tw-border-opacity, 1));
-}
-
 .border-neon-blue {
   --tw-border-opacity: 1;
   border-color: rgb(0 240 255 / var(--tw-border-opacity, 1));
@@ -1455,12 +1450,12 @@ body {
   padding: 1.5rem;
 }
 
-.p-7 {
-  padding: 1.75rem;
-}
-
 .p-8 {
   padding: 2rem;
+}
+
+.p-7 {
+  padding: 1.75rem;
 }
 
 .px-2 {
