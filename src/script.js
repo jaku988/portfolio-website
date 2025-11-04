@@ -114,7 +114,8 @@ const skillsData = {
                   </svg>
               </div>
               <div><p class="neon-text text-3xl">Tailwind</p></div>`,
-        description: "TODO",
+        description: "Narzędzie ułatwiające korzystanie z CSS o którym dowiedziałem się i zacząłem koryzstać podczas korzystania z CSS. " +
+            "Przyśpiesza pracę i sprawia że stylizowanie stron jest dla mnie bardziej przejrzyste i naturalne.",
     },
     Tkinter: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-blue-900 to-blue-500 rounded-full flex items-center justify-center p-2">
@@ -123,7 +124,9 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">Tkinter</p></div>`,
-        description: "TODO",
+        description: "Proste narzędzie projektowania GUI w pythonie. Miałem okazję sporo się nim bawić podczas nauki pythona, kiedy zajmowałem " +
+            "się pisaniem prostych gier typu snake, tic-tac-toe czy saper w ramach treningu programowania. Było to moje pierwsze zetknięcie z " +
+            "projektowaniem pierwszych aplikacji GUI.",
     },
     Python: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-blue-900 to-blue-500  rounded-full flex items-center justify-center p-2">
