@@ -135,7 +135,10 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">Python</p></div>`,
-        description: "TODO",
+        description: "Jeden z pierwszych języków programowania, które poznałem. Pozwolił mi szybko opanować podstawowe operacje, " +
+            "ale też szybko przenieść się do rzeczy bardziej zaawansowanych. Od podstawowego kodu krótko zajęło mi dojście najpierw " +
+            "do pisania GUI używając Tkinter i dalej do aplikacji używając Flaska czy Django. Oprócz tego ukończyłem kurs CodersLab " +
+            "Python Developer i otrzymałem certyfikat.",
     },
     Java: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-orange-300 to-white rounded-full flex items-center justify-center p-2">
@@ -144,7 +147,10 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">Java</p></div>`,
-        description: "TODO",
+        description: "Język poznany przeze mnie w toku studiów licencjackich na Uniwersytecie Łódzkim. Na początku używany przeze mnie " +
+            "do prostych zadań na studiach - pisałem aplikację w JavaFX polegającą na rezerwacji miejsc w kinie. Później miałem okazję " +
+            "pisać aplikację korzystającą ze Spring Boot oraz REST API. " +
+            "Doceniam szerokie możliwości rozszerzania Javy bibliotekami i, co za tym idzie, szerokie możliwości tego języka.",
     },
     ASP_NET: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-white to-blue-300 rounded-full flex items-center justify-center p-2">
