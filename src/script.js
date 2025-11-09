@@ -83,9 +83,8 @@ const skillsData = {
                     </svg>
                 </div>
                 <div><p class="neon-text text-3xl">CSS</p></div>`,
-        description: "Najbardziej powszechne narzędzie używane do edycji styli. Nauczyłem się go naturalnie w trakcie studiowania informatyki. " +
-            "Przewijał się często przy okazji wielu projektów, zadań czy mojej własnej nauki, " +
-            "a najwięcej nauczyłem się przy okazji pracy nad tą stroną. Dało mi to doświadczenie w stosowaniu tego narzędzia w praktyce."
+        description: "Używam CSS do tworzenia nowoczesnych i responsywnych interfejsów. Stosuję dobre praktyki w zakresie layoutu, " +
+            "animacji i zarządzania stylami. Najwięcej doświadczenia zdobyłem przy projektowaniu tej strony oraz innych projektów frontendowych."
     },
     JavaScript: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-black to-gray-700 rounded-full flex items-center justify-center p-7 ">
@@ -94,9 +93,9 @@ const skillsData = {
                     </svg>
                 </div>
                 <div><p class="neon-text text-3xl">JavaScript</p></div>`,
-        description: "Narzędzie poznane przeze mnie na studiach. Pierwszy raz zetknąłem się z nim podczas projektu grupowego na studiach. " +
-            "Od tamtej pory przewija się regularnie przy projektach. Wiedzę z JavaScript oraz doświadczenie z wykorzystania go w praktyce" +
-            "rozszerzyłem podczas uczęszczania na kurs Python Developer w szkole CodersLab. JavaScript był znaczną częścią tego kursu.",
+        description: "JavaScript wykorzystuję do tworzenia dynamicznych i interaktywnych elementów stron. Mam doświadczenie w manipulacji DOM, " +
+            "obsłudze zdarzeń i integracji z API. Umiejętności rozwijałem w projektach studenckich oraz podczas kursu CodersLab Python Developer, " +
+            "gdzie JS był dużą częścią programu.",
     },
     React: {
         icon:`<div class="w-32 h-32 bg-gradient-to-tr from-white to-blue-300 rounded-full flex items-center justify-center p-2">
@@ -114,8 +113,8 @@ const skillsData = {
                   </svg>
               </div>
               <div><p class="neon-text text-3xl">Tailwind</p></div>`,
-        description: "Narzędzie ułatwiające korzystanie z CSS o którym dowiedziałem się i zacząłem koryzstać podczas korzystania z CSS. " +
-            "Przyśpiesza pracę i sprawia że stylizowanie stron jest dla mnie bardziej przejrzyste i naturalne.",
+        description: "Tailwind CSS znacząco przyspiesza moją pracę nad stylizacją stron. Cenię go za przejrzystość i elastyczność. Używam go do " +
+            "szybkiego prototypowania nowoczesnych interfejsów i lepszej organizacji stylów.",
     },
     Tkinter: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-blue-900 to-blue-500 rounded-full flex items-center justify-center p-2">
@@ -124,9 +123,8 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">Tkinter</p></div>`,
-        description: "Proste narzędzie projektowania GUI w pythonie. Miałem okazję sporo się nim bawić podczas nauki pythona, kiedy zajmowałem " +
-            "się pisaniem prostych gier typu snake, tic-tac-toe czy saper w ramach treningu programowania. Było to moje pierwsze zetknięcie z " +
-            "projektowaniem pierwszych aplikacji GUI.",
+        description: "Tkinter wykorzystuję do budowy prostych aplikacji GUI w Pythonie. Tworzyłem z jego pomocą m.in. gry logiczne " +
+            "(Snake, Tic-Tac-Toe, Saper) oraz pierwsze wersje własnych aplikacji użytkowych.",
     },
     Python: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-blue-900 to-blue-500  rounded-full flex items-center justify-center p-2">
@@ -135,10 +133,9 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">Python</p></div>`,
-        description: "Jeden z pierwszych języków programowania, które poznałem. Pozwolił mi szybko opanować podstawowe operacje, " +
-            "ale też szybko przenieść się do rzeczy bardziej zaawansowanych. Od podstawowego kodu krótko zajęło mi dojście najpierw " +
-            "do pisania GUI używając Tkinter i dalej do aplikacji używając Flaska czy Django. Oprócz tego ukończyłem kurs CodersLab " +
-            "Python Developer i otrzymałem certyfikat.",
+        description: "Python to jeden z moich głównych języków programowania. Tworzę w nim aplikacje backendowe " +
+            "(Django, Flask) oraz desktopowe (Tkinter). Ukończyłem kurs Python Developer w CodersLab, a także " +
+            "wykorzystuję Pythona w projektach związanych z analizą danych i automatyzacją.",
     },
     Java: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-orange-300 to-white rounded-full flex items-center justify-center p-2">
@@ -147,10 +144,8 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">Java</p></div>`,
-        description: "Język poznany przeze mnie w toku studiów licencjackich na Uniwersytecie Łódzkim. Na początku używany przeze mnie " +
-            "do prostych zadań na studiach - pisałem aplikację w JavaFX polegającą na rezerwacji miejsc w kinie. Później miałem okazję " +
-            "pisać aplikację korzystającą ze Spring Boot oraz REST API. " +
-            "Doceniam szerokie możliwości rozszerzania Javy bibliotekami i, co za tym idzie, szerokie możliwości tego języka.",
+        description: "Programuję w Javie od studiów. Tworzyłem aplikacje w JavaFX (system rezerwacji miejsc w kinie) " +
+            "oraz backend w Spring Boot oparty o REST API. Doceniam elastyczność Javy i bogaty ekosystem bibliotek.",
     },
     ASP_NET: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-white to-blue-300 rounded-full flex items-center justify-center p-2">
@@ -159,14 +154,16 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">ASP.NET</p></div>`,
-        description: "TODO",
+        description: "W ASP.NET tworzyłem backend aplikacji \"Przepisy\" w języku C#. Projekt obejmował integrację z bazą " +
+            "danych i obsługę operacji CRUD. Poznałem podstawy frameworka i strukturę aplikacji MVC w środowisku Visual Studio 2022.",
     },
     REST_API: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-neon-green to-white rounded-full flex items-center justify-center">
                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-api"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 13h5" /><path d="M12 16v-8h3a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-3" /><path d="M20 8v8" /><path d="M9 16v-5.5a2.5 2.5 0 0 0 -5 0v5.5" /></svg>
                </div>
                <div><p class="neon-text text-3xl">REST API</p></div>`,
-        description: "TODO",
+        description: "Mam doświadczenie w tworzeniu i obsłudze REST API, m.in. w projekcie \"GitHub API\" (Spring Boot), " +
+            "który pobierał dane o repozytoriach użytkownika z GitHuba. Obecnie rozwijam aplikację pogodową wykorzystującą dane z OpenWeatherMap.",
     },
     Oracle: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-orange-200 to-white rounded-full flex items-center justify-center p-2">
@@ -175,7 +172,8 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">Oracle</p></div>`,
-        description: "TODO",
+        description: "Pracowałem z bazą danych Oracle podczas studiów, realizując zaawansowane zapytania SQL obejmujące " +
+            "sekwencje, triggery i widoki. Dzięki temu dobrze rozumiem relacyjne modele danych i optymalizację zapytań.",
     },
     Postgres: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-white to-blue-300 rounded-full flex items-center justify-center p-3">
@@ -184,42 +182,48 @@ const skillsData = {
                    </svg>
                </div>
                <div><p class="neon-text text-3xl">PostgreSQL</p></div>`,
-        description: "TODO",
+        description: "Znam PostgreSQL, który poznałem w praktyce podczas kursu CodersLab. Potrafię tworzyć struktury baz " +
+            "danych, definiować relacje i realizować zapytania SQL. Łatwo przystosowałem się do tego systemu dzięki wcześniejszej pracy z Oracle. ",
     },
     Linux: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-yellow-200 to-blue-200 rounded-full flex items-center justify-center p-2">
                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" />
                </div>
                <div><p class="neon-text text-3xl">Linux</p></div>`,
-        description: "TODO",
+        description: "Posługuję się systemem Linux w codziennej pracy i projektach. Znam podstawowe komendy bashowe, zarządzanie plikami " +
+            "i uprawnieniami, oraz automatyzację zadań za pomocą skryptów.",
     },
     GitHub: {
         icon: `<div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
                </div>
                <div><p class="neon-text text-3xl">GitHub</p></div>`,
-        description: "TODO",
+        description: "GitHub to moje podstawowe narzędzie kontroli wersji. Wykorzystuję je do pracy indywidualnej i zespołowej, " +
+            "zarządzania branchami oraz wdrażania nowych funkcjonalności. Regularnie używam GitHuba w projektach prywatnych i edukacyjnych.",
     },
     Docker: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-white to-blue-300 rounded-full flex items-center justify-center p-2">
                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg" />
                </div>
                <div><p class="neon-text text-3xl">Docker</p></div>`,
-        description: "TODO",
+        description: "Znam podstawy Dockera i rozumiem ideę konteneryzacji. W projekcie \"GitHub API\" tworzyłem kontener " +
+            "do uruchamiania aplikacji Spring Boot w odizolowanym środowisku. Wiem, jak budować obrazy i uruchamiać aplikacje w kontenerach.",
     },
     JetBrains: {
         icon: `<div class="w-32 h-32 bg-gradient-to-tr from-orange-500 to-purple-700 rounded-full flex items-center justify-center">
                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" />
                </div>
                <div><p class="neon-text text-3xl">JetBrains</p></div>`,
-        description: "TODO",
+        description: "Na co dzień korzystam z narzędzi JetBrains (PyCharm, IntelliJ IDEA, Rider). Cenię je za " +
+            "intuicyjność, integrację z GitHubem i bazami danych oraz wsparcie dla wielu języków programowania.",
     },
     Postman: {
         icon: `<div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" />
                </div>
                <div><p class="neon-text text-3xl">Postman</p></div>`,
-        description: "TODO",
+        description: "Używam Postmana do testowania endpointów REST API – zarówno GET, jak i POST. Pomaga mi to " +
+            "weryfikować poprawność odpowiedzi serwera i debugować aplikacje backendowe (m.in. projekt \"GitHub API\").",
     },
 }
 
