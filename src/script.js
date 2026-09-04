@@ -229,8 +229,8 @@ const skillsData = {
 
 // Dane projektów
 const projectData = {
-    project1: {
-        title: 'E-commerce Platform',
+    sklep_django: {
+        title: 'Sklep Django',
         description: `
             <p class="mb-4">Pełnofunkcjonalna platforma e-commerce zbudowana z użyciem React i Django.</p>
             <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
@@ -386,5 +386,5 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleDark.checked = true;
 })
 
-// Particle effect (opcjonalne - zaawansowane)
+// Particle effect
 console.log('Portfolio loaded! ');
