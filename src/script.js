@@ -17,6 +17,7 @@ mobileMenuBtn?.addEventListener('click', () => {
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        if (href == "#") return;
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -232,53 +233,100 @@ const projectData = {
     sklep_django: {
         title: 'Sklep Django',
         description: `
-            <p class="mb-4">Pełnofunkcjonalna platforma e-commerce zbudowana z użyciem React i Django.</p>
+            <p class="mb-4">Rozwinięty model sklepu internetowego stworzonego grupowo w ramach zaliczenia projektu studenckiego.</p>
             <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
             <ul class="list-disc list-inside space-y-2 mb-4">
-                <li>System koszyka i płatności online</li>
+                <li>System koszyka, zamówień i zwrotów</li>
                 <li>Panel administracyjny do zarządzania produktami</li>
-                <li>System recenzji i ocen</li>
+                <li>System komentarzy i ocen</li>
                 <li>Responsywny design z animacjami</li>
-                <li>Integracja z API płatności</li>
+                <li>Wgląd i edycja w istniejące zamówienie</li>
+                <li>Obsługa automatycznego systemu e-mailowego SMTP</li>
             </ul>
             <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
-            <p>React, Django REST Framework, PostgreSQL, Redis, Stripe API, Tailwind CSS</p>
+            <p>Django, Brevo, Docker</p>
         `,
-        github: 'https://github.com/yourusername/ecommerce',
+        github: 'https://github.com/jaku988/sklep-django',
     },
-    project2: {
-        title: 'Dashboard Analytics',
+    przepisy: {
+        title: 'Przepisy',
         description: `
-            <p class="mb-4">Zaawansowany dashboard do wizualizacji i analizy danych biznesowych.</p>
+            <p class="mb-4">Grupowy projekt sieciowej aplikacji forum z przepisami kulinarnymi w ramach zaliczenia projektu studenckiego.</p>
             <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
             <ul class="list-disc list-inside space-y-2 mb-4">
-                <li>Interaktywne wykresy i grafy</li>
-                <li>Real-time aktualizacja danych</li>
-                <li>Export raportów do PDF/Excel</li>
-                <li>Filtrowanie i sortowanie danych</li>
-                <li>System powiadomień</li>
-            </ul>
-            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
-            <p>Vue.js 3, Chart.js, D3.js, Node.js, Express, MongoDB, WebSocket</p>
-        `,
-        github: 'https://github.com/yourusername/dashboard',
-    },
-    project3: {
-        title: 'Social Media App',
-        description: `
-            <p class="mb-4">Aplikacja społecznościowa z funkcją real-time chat i udostępniania treści.</p>
-            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
-            <ul class="list-disc list-inside space-y-2 mb-4">
-                <li>Real-time chat z wieloma użytkownikami</li>
-                <li>System postów, komentarzy i reakcji</li>
-                <li>Profile użytkowników</li>
-                <li>System obserwowania użytkowników</li>
+                <li>Konto użytkownika razem z posiadanymi przez niego składnikami</li>
+                <li>Dodawanie i zarządzanie własnymi przepisami</li>
+                <li>Przeglądanie i ocenianie przepisów innych użytkowników</li>
+                <li>System wyszukiwania i filtrowania przepisów, również z filtrem posiadanych przez użytkownika składników</li>
                 <li>Upload i kompresja obrazów</li>
             </ul>
             <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
-            <p>Next.js, Socket.io, MongoDB, Cloudinary, NextAuth, Tailwind CSS</p>
+            <p>ASP.NET, Visual Studio Code</p>
         `,
-        github: 'https://github.com/yourusername/social-app',
+        github: 'https://github.com/jaku988/Aplikacja-przepisy',
+    },
+    github_api: {
+        title: 'Github Repo Api',
+        description: `
+            <p class="mb-4">Projekt rekrutacyjny mający na celu automatyczne pobieranie od określonego użytkownika GitHuba listy jego repozytoriów, branchy i SHA commitów.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Dostęp do api githuba na poziomie backendowym</li>
+                <li>Łączenie ze sobą informacji pochodzących z różnych API GitHuba w warstwie serwisowej</li>
+                <li>Obsługa różnych kodów HTML zwracających błąd</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>Java, Spring Boot, REST API, Postman</p>
+        `,
+        github: 'https://github.com/jaku988/GitHubRepoAPI/',
+    },
+    django_weather: {
+        title: 'Django Weather',
+        description: `
+            <p class="mb-4">Projekt indywidualny sieciowej aplikacji pogodowej wykorzystującej API od dostawcy danych pogodowych i odpowiednio przekazującej je użytkownikowi. Projekt jest rozwijany i obecnie jest daleki od ukończenia.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Planowane kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Wyszukiwanie miast do wyświetlenia w nich warunków pogodowych</li>
+                <li>Dodawanie i wyświetlanie ulubionych miejsc użytkownika</li>
+                <li>Przyjazny i czytelny sposób przekazania użytkownikowi danych pogodowych</li>
+                <li>Filtrowanie miast po oczekiwanych warunkach atmosferycznych</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>Django, OpenWeather, ...</p>
+        `,
+        github: 'https://github.com/jaku988/DjangoWeatherApp',
+    },
+    kino: {
+        title: 'Social Media App',
+        description: `
+            <p class="mb-4">Aplikacja GUI mająca na celu symulację rezerwacji miejsc w kinie. Aplikacja w graficzny sposób umożliwia użytkownikowi wybranie sali, godziny i miejsc na seans i w przejrzysty sposób pozwala mu dokonać rezerwacji. Napisana na zaliczenie na studiach.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Przeglądanie miejsc sal i godzin seansów</li>
+                <li>Graficzny interfejs wyboru miejsc i ich rozkładu w każdej z sal</li>
+                <li>Widoczne wyświetlanie miejsc wybranych, wolnych i zajętych</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>JavaFX, H2</p>
+        `,
+        github: 'https://github.com/jaku988/CInema',
+    },
+    portfolio: {
+        title: 'Strona Portfolio',
+        description: `
+            <p class="mb-4">Niniejsza strona zaprojektowana w celu przedstawienia mojej edukacji, projektów i doświadczenia w branży IT.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Responsywny design</li>
+                <li>Czytelne i miłe dla oka przedstawienie moich atutów</li>
+                <li>Możliwość kontaktu ze mną za pomocą formularza w sekcji kontaktu</li>
+                <li>Tryb ciemny i zmiana języka dla wygody użytkownika</li>
+                <li>Możliwość pobrania mojego cały czas aktualizowanego CV</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>HTML, CSS, Javascript, npm, Tailwind, ...</p>
+        `,
+        github: 'https://github.com/jaku988/portfolio-website',
     }
 };
 
@@ -286,6 +334,8 @@ const projectData = {
 function openProjectModal(projectId) {
     const modal = document.getElementById('project-modal');
     const project = projectData[projectId];
+    console.log(modal);
+    console.log(project);
 
     if (project) {
         document.getElementById('project-modal-title').textContent = project.title;
