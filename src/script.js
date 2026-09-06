@@ -266,7 +266,7 @@ const projectData = {
         github: 'https://github.com/jaku988/Aplikacja-przepisy',
     },
     github_api: {
-        title: 'Github Repo Api',
+        title: 'Github Api',
         description: `
             <p class="mb-4">Projekt rekrutacyjny mający na celu automatyczne pobieranie od określonego użytkownika GitHuba listy jego repozytoriów, branchy i SHA commitów.</p>
             <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
@@ -297,7 +297,7 @@ const projectData = {
         github: 'https://github.com/jaku988/DjangoWeatherApp',
     },
     kino: {
-        title: 'Social Media App',
+        title: 'Kino',
         description: `
             <p class="mb-4">Aplikacja GUI mająca na celu symulację rezerwacji miejsc w kinie. Aplikacja w graficzny sposób umożliwia użytkownikowi wybranie sali, godziny i miejsc na seans i w przejrzysty sposób pozwala mu dokonać rezerwacji. Napisana na zaliczenie na studiach.</p>
             <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
@@ -430,11 +430,38 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-//toggle dark mode by default
+// Particle effect
+
+// Obsługa trybu Dark / Light
 document.addEventListener('DOMContentLoaded', () => {
     const toggleDark = document.getElementById('toggle-dark');
-    toggleDark.checked = true;
-})
 
-// Particle effect
+    // Pobranie zapisanego motywu z pamięci przeglądarki
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'light') {
+        document.body.classList.add('light-theme');
+        toggleDark.checked = false; // Pozycja "słońce"
+    } else {
+        toggleDark.checked = true; // Pozycja "księżyc"
+    }
+
+    setTimeout(() => {
+        document.body.classList.add("transition-colors", "duration-500");
+    }, 100);
+
+    // Nasłuchiwanie na kliknięcie w przełącznik
+    toggleDark.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            // Włącz tryb ciemny
+            document.body.classList.remove('light-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            // Włącz tryb jasny
+            document.body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+});
+
 console.log('Portfolio loaded! ');

@@ -14,7 +14,7 @@
             <div class="container mx-auto px-6 py-4">
                 <div class="flex justify-between items-center">
                     <!-- ukryty element dla balansu -->
-                    <div class="hidden md:block w-24"></div>
+                    <div class="hidden md:block"><a href="" class="btn-neon">CV</a></div>
 
                     <!-- przyciski nawigacji -->
                     <div class="hidden md:flex space-x-6" id="nav-menu">
@@ -431,79 +431,150 @@
                 <h2 class="text-5xl font-bold text-center mb-16 neon-text">
                     Doświadczenie
                 </h2>
-                <div class="max-w-4xl mx-auto space-y-8">
+                <div class="max-w-4xl mx-auto">
                     <!-- Pozycja 1 -->
-                    <div class="glass-card rounded-xl p-6 border-l-4 border-neon-blue hover:scale-105 transition-transform duration-300">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-neon-blue">Senior Full Stack Developer</h3>
-                                <p class="text-xl text-gray-300">Tech Company Sp. z o.o.</p>
+                    <div class="flex items-center lg:space-x-10 space-x-8">
+
+                        <!-- lewa kolumna -->
+                        <div class="w-6 h-6 rounded-full border-4 border-neon-blue bg-neon-blue z-10 shadow-neon-blue animate-pulse-slow"></div>
+
+                        <!-- Prawa kolumna -->
+                        <div class="flex-1">
+                            <div class="glass-card rounded-xl p-6 border-l-4 border-neon-blue hover:scale-105 transition-transform duration-300">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-neon-blue">Praktykant w dziale it</h3>
+                                        <p class="text-xl text-gray-300">Polska Grupa Farmaceutyczna S.A.</p>
+                                    </div>
+                                    <span class="text-neon-pink font-semibold">07.2024-08.2024</span>
+                                </div>
+                                <ul class="list-disc p-5 text-blue-400">
+                                    <li>Automatyzacja i skrypty w Pythonie</li>
+                                    <li>Praca z relacyjnymi bazami danych</li>
+                                    <li>Zrozumienie procesów klasy Enterprise</li>
+                                    <li>Współpraca interdyscyplinarna</li>
+                                    <li>Analiza i diagnoza problemów technicznych</li>
+                                </ul>
+                                <p class="text-sm text-neon-green">Łódź, Polska</p>
                             </div>
-                            <span class="text-neon-pink font-semibold">2022 - obecnie</span>
                         </div>
-                        <p class="text-gray-400 mb-3">
-                            Rozwój i utrzymanie aplikacji webowych. Prowadzenie zespołu developerów.
-                            Implementacja nowych funkcjonalności i optymalizacja wydajności.
-                        </p>
-                        <p class="text-sm text-neon-green">Warszawa, Polska</p>
                     </div>
 
-                    <!-- Pozycja 2 -->
-                    <div class="glass-card rounded-xl p-6 border-l-4 border-neon-purple hover:scale-105 transition-transform duration-300">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-neon-purple">Full Stack Developer</h3>
-                                <p class="text-xl text-gray-300">Startup Solutions</p>
-                            </div>
-                            <span class="text-neon-pink font-semibold">2020 - 2022</span>
-                        </div>
-                        <p class="text-gray-400 mb-3">
-                            Tworzenie aplikacji webowych od podstaw. Współpraca z zespołem designerów.
-                            Implementacja responsywnych interfejsów użytkownika.
-                        </p>
-                        <p class="text-sm text-neon-green">Kraków, Polska</p>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Edukacja -->
         <section id="education" class="py-20">
+            <!-- Główny kontener -->
             <div class="container mx-auto px-6">
                 <h2 class="text-5xl font-bold text-center mb-16 neon-text">
                     Edukacja
                 </h2>
-                <div class="max-w-4xl mx-auto space-y-8">
-                    <!-- Uczelnia -->
-                    <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-neon-pink">Informatyka</h3>
-                                <p class="text-xl text-gray-300">Politechnika Warszawska</p>
-                            </div>
-                            <span class="text-neon-blue font-semibold">2016 - 2020</span>
+
+                <!-- Kontener na edukację -->
+                <div class="max-w-4xl mx-auto flex flex-col">
+
+                    <!-- Liceum -->
+                    <!--punkt 1 -->
+                    <div class="flex lg:space-x-10 space-x-8">
+
+                        <!-- lewa strona -->
+                        <div class="flex flex-col items-center w-6">
+                            <div class="flex-1 h-1 bg-transparent"></div>
+                            <div class="w-6 h-6 rounded-full bg-neon-blue border-4 border-neon-blue shadow-neon-blue animate-pulse-slow"></div>
+                            <div class="w-1 flex-1 bg-neon-blue opacity-60"></div>
                         </div>
-                        <p class="text-gray-400 mb-3">
-                            Inżynier / Magister - Tytuł: Inżynier Informatyki
-                        </p>
-                        <p class="text-sm text-neon-green">Specjalizacja: Aplikacje internetowe</p>
+
+                        <!-- prawa strona -->
+                        <div class="flex-1 p-6">
+                            <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-neon-pink">Profil matematyczno - fizyczny</h3>
+                                    <p class="text-xl text-gray-300">II Liceum Ogólnokształcące im. Stefana Żeromskiego</p>
+                                </div>
+                                <span class="text-neon-blue font-semibold">2018 - 2021</span>
+                            </div>
+                            <p class="text-gray-400 mb-3">
+                                Wykształcenie średnie na profilu matematyczno - fizycznym
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Uczelnia -->
+                    <!--punkt 2 -->
+                    <div class="flex lg:space-x-10 space-x-8">
+
+                        <!-- lewa strona -->
+                        <div class="flex flex-col items-center w-6">
+                            <div class="w-1 flex-1 bg-neon-blue opacity-60"></div>
+                            <div class="w-6 h-6 rounded-full bg-neon-blue border-4 border-neon-blue shadow-neon-blue animate-pulse-slow"></div>
+                            <div class="w-1 flex-1 bg-neon-blue opacity-60"></div>
+                        </div>
+
+                        <!-- prawa strona -->
+                        <div class="flex-1 p-6">
+                            <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-neon-pink">Informatyka - Studia I Stopnia</h3>
+                                        <p class="text-xl text-gray-300">Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego</p>
+                                    </div>
+                                    <span class="text-neon-blue font-semibold">2021 - 2024</span>
+                                </div>
+                                <p class="text-gray-400 mb-3">
+                                    Obrona pracy licencjackiej "Charakteryzacja Myhilla-Nerode'a języków regularnych"
+                                </p>
+                                <p class="text-neon-green mt-6">
+                                    Specjalizacja: Sieci i Przetwarzanie Danych
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--punkt 3 -->
+                    <div class="flex lg:space-x-10 space-x-8">
+
+                        <!-- lewa strona -->
+                        <div class="flex flex-col items-center w-6">
+                            <div class="w-1 flex-1 bg-neon-blue opacity-60"></div>
+                            <div class="w-6 h-6 rounded-full bg-neon-blue border-4 border-neon-blue shadow-neon-blue animate-pulse-slow"></div>
+                            <div class="flex-1 h-1 bg-transparent"></div>
+                        </div>
+
+                        <!-- prawa strona -->
+                        <div class="flex-1 p-6">
+                            <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-neon-pink">Informatyka - Studia II Stopnia</h3>
+                                        <p class="text-xl text-gray-300">Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego</p>
+                                    </div>
+                                    <span class="text-neon-blue font-semibold">2025 - Obecnie</span>
+                                </div>
+                                <p class="text-gray-400 mb-3">
+                                    Obecnie jestem na ostatnim roku studiów magisterskich i wybieram temat pracy magisterskiej
+                                </p>
+                                <p class="text-neon-green mt-6">
+                                    Specjalizacja: Informatyka Ogólna
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Kursy -->
-                    <div class="glass-card rounded-xl p-6 border-l-4 border-neon-green hover:scale-105 transition-transform duration-300">
+                    <div class="glass-card rounded-xl p-8 border-l-4 border-neon-green hover:scale-105 transition-transform duration-300">
                         <h3 class="text-2xl font-bold text-neon-green mb-4">Dodatkowe kursy</h3>
                         <ul class="space-y-2 text-gray-400">
                             <li class="flex items-center">
-                                <span class="w-2 h-2 bg-neon-blue rounded-full mr-3"></span>
-                                Advanced React Patterns - 2023
-                            </li>
-                            <li class="flex items-center">
                                 <span class="w-2 h-2 bg-neon-pink rounded-full mr-3"></span>
-                                Django for Professionals - 2022
+                                Cisco CyberOps Associate 1.0 - 2024
                             </li>
                             <li class="flex items-center">
-                                <span class="w-2 h-2 bg-neon-purple rounded-full mr-3"></span>
-                                UI/UX Design Masterclass - 2021
+                                <span class="w-2 h-2 bg-neon-blue rounded-full mr-3"></span>
+                                Coders Lab Python Developer - 2025
                             </li>
                         </ul>
                     </div>
@@ -572,7 +643,7 @@
         <footer class="py-8 border-t border-gray-800">
             <div class="container mx-auto px-6 text-center">
                 <p class="text-gray-400">
-                    &copy; 2025 <span class="text-neon-blue">Jan Kulak</span>. Wszystkie prawa zastrzeżone.
+                    &copy; 2026 <span class="text-neon-blue">Jan Kulak</span>. Wszystkie prawa zastrzeżone.
                 </p>
             </div>
         </footer>

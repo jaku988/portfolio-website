@@ -201,3 +201,130 @@
     opacity: 1;
     transform: translate(2em, 2em) rotate(-15deg);
 }
+
+/* -- TRYB JASNY (Light Theme) -- */
+body.light-theme {
+    @apply bg-gray-50 text-gray-900;
+}
+
+body.light-theme .glass-card {
+    @apply bg-white bg-opacity-80 border-gray-200;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+body.light-theme .text-gray-400,
+body.light-theme .text-gray-300 {
+    @apply text-gray-600;
+}
+
+body.light-theme .bg-gray-800 {
+    @apply bg-white;
+}
+
+body.light-theme .border-gray-700 {
+    @apply border-gray-200;
+}
+
+/* Inputy w formularzu kontaktowym */
+body.light-theme input,
+body.light-theme textarea {
+    @apply bg-white text-gray-900 border-gray-300;
+}
+
+/* Półprzezroczyste tło za modalem */
+body.light-theme .modal-overlay {
+    @apply bg-white bg-opacity-75;
+}
+
+/* Modal w trybie jasnym */
+body.light-theme .modal-content {
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.95), rgba(245, 245, 250, 0.98));
+    box-shadow:
+            inset 0 4px 16px rgba(0, 0, 0, 0.02),
+            inset 0 -6px 24px rgba(0, 0, 0, 0.01),
+            0 0 25px rgba(187, 0, 255, 0.2);
+}
+
+/* ===================================================
+       KONTRAST I ELEMENTY AKCENTOWE DLA TRYBU JASNEGO
+       =================================================== */
+
+/* 1. Neonowe nagłówki (usuwamy rozmyty blask, nadajemy wyrazisty, głęboki błękit) */
+body.light-theme .neon-text {
+    @apply text-blue-600;
+    text-shadow: 0 2px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* 2. Zwiększenie kontrastu kolorów tekstowych */
+body.light-theme .text-neon-blue {
+    @apply text-blue-600;
+}
+body.light-theme .text-neon-pink {
+    @apply text-pink-600;
+}
+body.light-theme .text-neon-purple {
+    @apply text-purple-700;
+}
+body.light-theme .text-neon-green {
+    @apply text-emerald-600 font-medium;
+}
+
+/* 3. Przyciski neonowe (zamiast bladości zyskują solidny, czytelny obrys i elegancki cień) */
+body.light-theme .btn-neon {
+    @apply border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+}
+body.light-theme .btn-neon.border-neon-pink {
+    @apply border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white;
+    box-shadow: 0 4px 14px rgba(219, 39, 119, 0.15);
+}
+
+/* 4. Linki nawigacji (menu) */
+body.light-theme .section-link {
+    @apply text-gray-700 hover:text-pink-600;
+}
+body.light-theme .section-link::after {
+    @apply bg-pink-600;
+    box-shadow: 0 0 8px rgba(219, 39, 119, 0.4);
+}
+
+/* 5. Gradienty tekstowe (głębsze odcienie, by były w 100% czytelne na bieli) */
+body.light-theme .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 6. Oś czasu: linie, kropki i ramki kart */
+body.light-theme .bg-neon-blue {
+    @apply bg-blue-600;
+}
+body.light-theme .border-neon-blue {
+    @apply border-blue-600;
+}
+body.light-theme .bg-neon-pink {
+    @apply bg-pink-600;
+}
+body.light-theme .border-neon-pink {
+    @apply border-pink-600;
+}
+body.light-theme .bg-neon-green {
+    @apply bg-emerald-600;
+}
+body.light-theme .border-neon-green {
+    @apply border-emerald-600;
+}
+body.light-theme .border-neon-purple {
+    @apply border-purple-600;
+}
+
+/* 7. Cienie i obramowania kart w sekcji projektów */
+body.light-theme .project-card:hover {
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+}
+body.light-theme .shadow-neon-blue {
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.35);
+}
+body.light-theme .shadow-neon-pink {
+    box-shadow: 0 0 12px rgba(219, 39, 119, 0.35);
+}
