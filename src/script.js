@@ -436,21 +436,19 @@ function typeWriter(element, text, speed = 100) {
 document.addEventListener('DOMContentLoaded', () => {
     const toggleDark = document.getElementById('toggle-dark');
 
-    // Pobranie zapisanego motywu z pamięci przeglądarki
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme === 'light') {
-        document.body.classList.add('light-theme');
+    // 1. Sprawdzamy motyw, który został ustawiony przez szybki skrypt w HTML
+    if (document.body.classList.contains('light-theme')) {
         toggleDark.checked = false; // Pozycja "słońce"
     } else {
         toggleDark.checked = true; // Pozycja "księżyc"
     }
 
+    // 2. Dodajemy opóźnione przejścia, by pominąć startową animację
     setTimeout(() => {
         document.body.classList.add("transition-colors", "duration-500");
     }, 100);
 
-    // Nasłuchiwanie na kliknięcie w przełącznik
+    // 3. Nasłuchiwanie na kliknięcie w przełącznik
     toggleDark.addEventListener('change', (e) => {
         if (e.target.checked) {
             // Włącz tryb ciemny
