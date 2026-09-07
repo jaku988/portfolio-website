@@ -16,7 +16,8 @@ mobileMenuBtn?.addEventListener('click', () => {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        if (href == "#") return;
+        const currentHref = this.getAttribute('href');
+        if (currentHref == "#") return;
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
