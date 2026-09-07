@@ -14,7 +14,6 @@ mobileMenuBtn?.addEventListener('click', () => {
     navMenu.classList.toggle('p-4');
 });
 
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         if (href == "#") return;
@@ -30,7 +29,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.section-link');
 
@@ -52,7 +50,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Intersection Observer dla animacji
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -67,7 +64,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Obserwuj wszystkie sekcje i karty
 document.querySelectorAll('section, .glass-card, .project-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
@@ -330,21 +326,42 @@ const projectData = {
     }
 };
 
-// Modal funkcje
+/**************************************************************
+                        OBSŁUGA MODALI
+***************************************************************/
 function openProjectModal(projectId) {
     const modal = document.getElementById('project-modal');
     const project = projectData[projectId];
-    console.log(modal);
-    console.log(project);
 
     if (project) {
-        document.getElementById('project-modal-title').textContent = project.title;
-        document.getElementById('project-modal-body').innerHTML = project.description;
+        // Szukamy tekstu w słowniku na podstawie aktualnego języka.
+        // Jeśli nie znajdzie (np. zapomniałeś dodać do słownika), użyje domyślnego.
+        const translatedTitle = translations[currentLang][`modal-${projectId}-title`] || project.title;
+        const translatedDesc = translations[currentLang][`modal-${projectId}-desc`] || project.description;
+
+        document.getElementById('project-modal-title').textContent = translatedTitle;
+        document.getElementById('project-modal-body').innerHTML = translatedDesc;
         document.getElementById('project-modal-github').href = project.github;
 
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     }
+}
+
+function openSkillModal(skillId) {
+    const modal = document.getElementById('skill-modal');
+    const skill = skillsData[skillId];
+
+    if (skill) {
+        // Analogicznie szukamy opisu umiejętności w słowniku
+        const translatedDesc = translations[currentLang][`modal-skill-${skillId}`] || skill.description;
+
+        document.getElementById('skill-modal-icon').innerHTML = skill.icon;
+        document.getElementById('skill-modal-description').innerHTML = translatedDesc;
+    }
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
 }
 
 function closeProjectModal(event) {
@@ -355,19 +372,6 @@ function closeProjectModal(event) {
     }
 }
 
-function openSkillModal(skillId) {
-    const modal = document.getElementById('skill-modal')
-    const skill = skillsData[skillId];
-
-    if(skill){
-        document.getElementById('skill-modal-icon').innerHTML = skill.icon;
-        document.getElementById('skill-modal-description').textContent = skill.description;
-    }
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-
-}
-
 function closeSkillModal(event){
     const modal = document.getElementById('skill-modal');
     if(!event || event.target === modal){
@@ -376,7 +380,6 @@ function closeSkillModal(event){
     }
 }
 
-// ESC key to close modal
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeProjectModal();
@@ -432,7 +435,9 @@ function typeWriter(element, text, speed = 100) {
 
 // Particle effect
 
-// Obsługa trybu Dark / Light
+/**************************************************************
+                       ZMIANA MOTYWU
+***************************************************************/
 document.addEventListener('DOMContentLoaded', () => {
     const toggleDark = document.getElementById('toggle-dark');
 
@@ -461,5 +466,381 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/**************************************************************
+                          ZMIANA JĘZYKA
+***************************************************************/
+
+// aktualny język
+let currentLang = localStorage.getItem('lang') || 'pl';
+
+const translations = {
+    pl: {
+        // --- NAWIGACJA I UI ---
+        "nav-about": "O mnie",
+        "nav-skills": "Umiejętności",
+        "nav-projects": "Projekty",
+        "nav-experience": "Doświadczenie",
+        "nav-education": "Edukacja",
+        "nav-contact": "Kontakt",
+        "hero-role": "Junior Backend Developer",
+        "hero-desc": "Tworzę nowoczesne, responsywne aplikacje webowe z pasją do innowacji",
+        "hero-btn-projects": "Zobacz projekty",
+        "hero-btn-contact": "Kontakt",
+        "about-title": "O mnie",
+        "about-personal-title": "Dane osobowe",
+        "about-label-name": "Imię i nazwisko:",
+        "about-label-role": "Tytuł:",
+        "about-value-role": "Junior Backend Developer",
+        "about-label-location": "Lokalizacja:",
+        "about-value-location": "Łódź, Polska",
+        "about-bio-title": "Bio",
+        "about-bio-desc": "Pasjonuję się tworzeniem nowoczesnych aplikacji webowych. Specjalizuję się w React, Django i technologiach frontendowych. Zawsze gotowy na nowe wyzwania i ciągły rozwój.",
+        "skills-title": "Umiejętności",
+        "skills-cat-frontend": "Frontend",
+        "skills-cat-backend": "Backend",
+        "skills-cat-db": "Bazy danych",
+        "skills-cat-tools": "Narzędzia",
+        "projects-title": "Projekty",
+        "project-sklep-desc": "Grupowy projekt sklepu internetowego z wykorzystaniem technologii Django, Docker, Git, SMTP (Brevo).",
+        "project-przepisy-desc": "Grupowy projekt serwisu z przepisami w ASP.NET z wykorzystaniem bazy danych w Visual Studio Code.",
+        "project-github-desc": "Projekt aplikacji sieciowej stworzonej w Spring Boot i korzystający z REST API. Pobiera repozytoria użytkownika.",
+        "project-weather-desc": "Będąca w początkowej fazie sieciowa aplikacja pogodowa łącząca technologie Django i REST API.",
+        "project-kino-desc": "Indywidualny projekt JavaFX symulujący rezerwację biletów w kinie. Projekt zaliczeniowy w toku studiów.",
+        "project-portfolio-desc": "Moja interaktywna wizytówka internetowa.",
+        "exp-title": "Doświadczenie",
+        "exp-job-title": "Praktykant w dziale it",
+        "exp-task-1": "Automatyzacja i skrypty w Pythonie",
+        "exp-task-2": "Praca z relacyjnymi bazami danych",
+        "exp-task-3": "Zrozumienie procesów klasy Enterprise",
+        "exp-task-4": "Współpraca interdyscyplinarna",
+        "exp-task-5": "Analiza i diagnoza problemów technicznych",
+        "exp-location": "Łódź, Polska",
+        "edu-title": "Edukacja",
+        "edu-hs-title": "Profil matematyczno - fizyczny",
+        "edu-hs-desc": "Wykształcenie średnie na profilu matematyczno - fizycznym",
+        "edu-bsc-title": "Informatyka - Studia I Stopnia",
+        "edu-bsc-school": "Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego",
+        "edu-bsc-desc": "Obrona pracy licencjackiej \"Charakteryzacja Myhilla-Nerode'a języków regularnych\"",
+        "edu-bsc-spec": "Specjalizacja: Sieci i Przetwarzanie Danych",
+        "edu-msc-title": "Informatyka - Studia II Stopnia",
+        "edu-msc-school": "Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego",
+        "edu-msc-date": "2025 - Obecnie",
+        "edu-msc-desc": "Obecnie jestem na ostatnim roku studiów magisterskich i wybieram temat pracy magisterskiej",
+        "edu-msc-spec": "Specjalizacja: Informatyka Ogólna",
+        "edu-courses-title": "Dodatkowe kursy",
+        "contact-title": "Kontakt",
+        "contact-info-title": "Dane kontaktowe",
+        "contact-form-title": "Wyślij wiadomość",
+        "contact-placeholder-name": "Imię",
+        "contact-placeholder-email": "Email",
+        "contact-placeholder-msg": "Wiadomość",
+        "contact-btn-send": "Wyślij",
+        "footer-rights": "Wszystkie prawa zastrzeżone.",
+
+        // --- MODALE: UMIEJĘTNOŚCI (SKILLS) ---
+        "modal-skill-CSS": "Używam CSS do tworzenia nowoczesnych i responsywnych interfejsów. Stosuję dobre praktyki w zakresie layoutu, animacji i zarządzania stylami. Najwięcej doświadczenia zdobyłem przy projektowaniu tej strony oraz innych projektów frontendowych.",
+        "modal-skill-JavaScript": "JavaScript wykorzystuję do tworzenia dynamicznych i interaktywnych elementów stron. Mam doświadczenie w manipulacji DOM, obsłudze zdarzeń i integracji z API. Umiejętności rozwijałem w projektach studenckich oraz podczas kursu CodersLab Python Developer, gdzie JS był dużą częścią programu.",
+        "modal-skill-React": "Aktualnie zgłębiam wiedzę na temat budowania interaktywnych aplikacji SPA z wykorzystaniem komponentów funkcyjnych i Hooków.",
+        "modal-skill-Tailwind": "Tailwind CSS znacząco przyspiesza moją pracę nad stylizacją stron. Cenię go za przejrzystość i elastyczność. Używam go do szybkiego prototypowania nowoczesnych interfejsów i lepszej organizacji stylów.",
+        "modal-skill-Tkinter": "Tkinter wykorzystuję do budowy prostych aplikacji GUI w Pythonie. Tworzyłem z jego pomocą m.in. gry logiczne (Snake, Tic-Tac-Toe, Saper) oraz pierwsze wersje własnych aplikacji użytkowych.",
+        "modal-skill-Python": "Python to jeden z moich głównych języków programowania. Tworzę w nim aplikacje backendowe (Django, Flask) oraz desktopowe (Tkinter). Ukończyłem kurs Python Developer w CodersLab, a także wykorzystuję Pythona w projektach związanych z analizą danych i automatyzacją.",
+        "modal-skill-Java": "Programuję w Javie od studiów. Tworzyłem aplikacje w JavaFX (system rezerwacji miejsc w kinie) oraz backend w Spring Boot oparty o REST API. Doceniam elastyczność Javy i bogaty ekosystem bibliotek.",
+        "modal-skill-ASP_NET": "W ASP.NET tworzyłem backend aplikacji \"Przepisy\" w języku C#. Projekt obejmował integrację z bazą danych i obsługę operacji CRUD. Poznałem podstawy frameworka i strukturę aplikacji MVC w środowisku Visual Studio 2022.",
+        "modal-skill-REST_API": "Mam doświadczenie w tworzeniu i obsłudze REST API, m.in. w projekcie \"GitHub API\" (Spring Boot), który pobierał dane o repozytoriach użytkownika z GitHuba. Obecnie rozwijam aplikację pogodową wykorzystującą dane z OpenWeatherMap.",
+        "modal-skill-Oracle": "Pracowałem z bazą danych Oracle podczas studiów, realizując zaawansowane zapytania SQL obejmujące sekwencje, triggery i widoki. Dzięki temu dobrze rozumiem relacyjne modele danych i optymalizację zapytań.",
+        "modal-skill-Postgres": "Znam PostgreSQL, który poznałem w praktyce podczas kursu CodersLab. Potrafię tworzyć struktury baz danych, definiować relacje i realizować zapytania SQL. Łatwo przystosowałem się do tego systemu dzięki wcześniejszej pracy z Oracle.",
+        "modal-skill-Linux": "Posługuję się systemem Linux w codziennej pracy i projektach. Znam podstawowe komendy bashowe, zarządzanie plikami i uprawnieniami, oraz automatyzację zadań za pomocą skryptów.",
+        "modal-skill-GitHub": "GitHub to moje podstawowe narzędzie kontroli wersji. Wykorzystuję je do pracy indywidualnej i zespołowej, zarządzania branchami oraz wdrażania nowych funkcjonalności. Regularnie używam GitHuba w projektach prywatnych i edukacyjnych.",
+        "modal-skill-Docker": "Znam podstawy Dockera i rozumiem ideę konteneryzacji. W projekcie \"GitHub API\" tworzyłem kontener do uruchamiania aplikacji Spring Boot w odizolowanym środowisku. Wiem, jak budować obrazy i uruchamiać aplikacje w kontenerach.",
+        "modal-skill-JetBrains": "Na co dzień korzystam z narzędzi JetBrains (PyCharm, IntelliJ IDEA, Rider). Cenię je za intuicyjność, integrację z GitHubem i bazami danych oraz wsparcie dla wielu języków programowania.",
+        "modal-skill-Postman": "Używam Postmana do testowania endpointów REST API – zarówno GET, jak i POST. Pomaga mi to weryfikować poprawność odpowiedzi serwera i debugować aplikacje backendowe (m.in. projekt \"GitHub API\").",
+
+        // --- MODALE: PROJEKTY (PROJECTS) ---
+        "modal-sklep_django-title": "Sklep Django",
+        "modal-sklep_django-desc": `
+            <p class="mb-4">Rozwinięty model sklepu internetowego stworzonego grupowo w ramach zaliczenia projektu studenckiego.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>System koszyka, zamówień i zwrotów</li>
+                <li>Panel administracyjny do zarządzania produktami</li>
+                <li>System komentarzy i ocen</li>
+                <li>Responsywny design z animacjami</li>
+                <li>Wgląd i edycja w istniejące zamówienie</li>
+                <li>Obsługa automatycznego systemu e-mailowego SMTP</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>Django, Brevo, Docker</p>
+        `,
+        "modal-przepisy-title": "Przepisy",
+        "modal-przepisy-desc": `
+            <p class="mb-4">Grupowy projekt sieciowej aplikacji forum z przepisami kulinarnymi w ramach zaliczenia projektu studenckiego.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Konto użytkownika razem z posiadanymi przez niego składnikami</li>
+                <li>Dodawanie i zarządzanie własnymi przepisami</li>
+                <li>Przeglądanie i ocenianie przepisów innych użytkowników</li>
+                <li>System wyszukiwania i filtrowania przepisów, również z filtrem posiadanych przez użytkownika składników</li>
+                <li>Upload i kompresja obrazów</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>ASP.NET, Visual Studio Code</p>
+        `,
+        "modal-github_api-title": "Github Api",
+        "modal-github_api-desc": `
+            <p class="mb-4">Projekt rekrutacyjny mający na celu automatyczne pobieranie od określonego użytkownika GitHuba listy jego repozytoriów, branchy i SHA commitów.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Dostęp do api githuba na poziomie backendowym</li>
+                <li>Łączenie ze sobą informacji pochodzących z różnych API GitHuba w warstwie serwisowej</li>
+                <li>Obsługa różnych kodów HTML zwracających błąd</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>Java, Spring Boot, REST API, Postman</p>
+        `,
+        "modal-django_weather-title": "Django Weather",
+        "modal-django_weather-desc": `
+            <p class="mb-4">Projekt indywidualny sieciowej aplikacji pogodowej wykorzystującej API od dostawcy danych pogodowych i odpowiednio przekazującej je użytkownikowi. Projekt jest rozwijany i obecnie jest daleki od ukończenia.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Planowane kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Wyszukiwanie miast do wyświetlenia w nich warunków pogodowych</li>
+                <li>Dodawanie i wyświetlanie ulubionych miejsc użytkownika</li>
+                <li>Przyjazny i czytelny sposób przekazania użytkownikowi danych pogodowych</li>
+                <li>Filtrowanie miast po oczekiwanych warunkach atmosferycznych</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>Django, OpenWeather, ...</p>
+        `,
+        "modal-kino-title": "Kino",
+        "modal-kino-desc": `
+            <p class="mb-4">Aplikacja GUI mająca na celu symulację rezerwacji miejsc w kinie. Aplikacja w graficzny sposób umożliwia użytkownikowi wybranie sali, godziny i miejsc na seans i w przejrzysty sposób pozwala mu dokonać rezerwacji. Napisana na zaliczenie na studiach.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Przeglądanie miejsc sal i godzin seansów</li>
+                <li>Graficzny interfejs wyboru miejsc i ich rozkładu w każdej z sal</li>
+                <li>Widoczne wyświetlanie miejsc wybranych, wolnych i zajętych</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>JavaFX, H2</p>
+        `,
+        "modal-portfolio-title": "Strona Portfolio",
+        "modal-portfolio-desc": `
+            <p class="mb-4">Niniejsza strona zaprojektowana w celu przedstawienia mojej edukacji, projektów i doświadczenia w branży IT.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Kluczowe funkcje:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Responsywny design</li>
+                <li>Czytelne i miłe dla oka przedstawienie moich atutów</li>
+                <li>Możliwość kontaktu ze mną za pomocą formularza w sekcji kontaktu</li>
+                <li>Tryb ciemny i zmiana języka dla wygody użytkownika</li>
+                <li>Możliwość pobrania mojego cały czas aktualizowanego CV</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologie:</h4>
+            <p>HTML, CSS, Javascript, npm, Tailwind, ...</p>
+        `
+    },
+    en: {
+        // --- NAWIGACJA I UI ---
+        "nav-about": "About Me",
+        "nav-skills": "Skills",
+        "nav-projects": "Projects",
+        "nav-experience": "Experience",
+        "nav-education": "Education",
+        "nav-contact": "Contact",
+        "hero-role": "Junior Backend Developer",
+        "hero-desc": "I build modern, responsive web applications with a passion for innovation",
+        "hero-btn-projects": "View projects",
+        "hero-btn-contact": "Contact",
+        "about-title": "About Me",
+        "about-personal-title": "Personal Details",
+        "about-label-name": "Name:",
+        "about-label-role": "Role:",
+        "about-value-role": "Junior Backend Developer",
+        "about-label-location": "Location:",
+        "about-value-location": "Łódź, Poland",
+        "about-bio-title": "Bio",
+        "about-bio-desc": "I am passionate about creating modern web applications. I specialize in React, Django, and frontend technologies. Always ready for new challenges and continuous growth.",
+        "skills-title": "Skills",
+        "skills-cat-frontend": "Frontend",
+        "skills-cat-backend": "Backend",
+        "skills-cat-db": "Databases",
+        "skills-cat-tools": "Tools",
+        "projects-title": "Projects",
+        "project-sklep-desc": "A group e-commerce store project utilizing Django, Docker, Git, and SMTP (Brevo).",
+        "project-przepisy-desc": "A group recipe forum web application developed in ASP.NET using a database in Visual Studio Code.",
+        "project-github-desc": "A web application created in Spring Boot utilizing a REST API to fetch a user's repositories.",
+        "project-weather-desc": "An early-stage web weather application combining Django and REST API technologies.",
+        "project-kino-desc": "An individual JavaFX project simulating cinema ticket reservations. A university final project.",
+        "project-portfolio-desc": "My interactive online portfolio website.",
+        "exp-title": "Experience",
+        "exp-job-title": "IT Department Intern",
+        "exp-task-1": "Automation and scripting in Python",
+        "exp-task-2": "Working with relational databases",
+        "exp-task-3": "Understanding Enterprise-class processes",
+        "exp-task-4": "Interdisciplinary collaboration",
+        "exp-task-5": "Analysis and diagnosis of technical problems",
+        "exp-location": "Łódź, Poland",
+        "edu-title": "Education",
+        "edu-hs-title": "Mathematics and Physics Profile",
+        "edu-hs-desc": "Secondary education with a focus on mathematics and physics",
+        "edu-bsc-title": "Computer Science - Bachelor's Degree",
+        "edu-bsc-school": "Faculty of Mathematics and Computer Science, University of Łódź",
+        "edu-bsc-desc": "Defended bachelor's thesis: \"Myhill-Nerode Characterization of Regular Languages\"",
+        "edu-bsc-spec": "Specialization: Networks and Data Processing",
+        "edu-msc-title": "Computer Science - Master's Degree",
+        "edu-msc-school": "Faculty of Mathematics and Computer Science, University of Łódź",
+        "edu-msc-date": "2025 - Present",
+        "edu-msc-desc": "Currently in my final year of master's studies, choosing a thesis topic.",
+        "edu-msc-spec": "Specialization: General Computer Science",
+        "edu-courses-title": "Additional Courses",
+        "contact-title": "Contact",
+        "contact-info-title": "Contact Details",
+        "contact-form-title": "Send a Message",
+        "contact-placeholder-name": "Name",
+        "contact-placeholder-email": "Email",
+        "contact-placeholder-msg": "Message",
+        "contact-btn-send": "Send",
+        "footer-rights": "All rights reserved.",
+
+        // --- MODALE: UMIEJĘTNOŚCI (SKILLS) ---
+        "modal-skill-CSS": "I use CSS to create modern and responsive interfaces. I follow best practices in layout, animations, and styling management. I gained most of my experience designing this website and other frontend projects.",
+        "modal-skill-JavaScript": "I use JavaScript to create dynamic and interactive page elements. I have experience in DOM manipulation, event handling, and API integration. I developed my skills in university projects and during the CodersLab Python Developer course, where JS was a major part of the program.",
+        "modal-skill-React": "I am currently expanding my knowledge on building interactive SPA applications using functional components and Hooks.",
+        "modal-skill-Tailwind": "Tailwind CSS significantly speeds up my work on page styling. I value it for its clarity and flexibility. I use it for quick prototyping of modern interfaces and better style organization.",
+        "modal-skill-Tkinter": "I use Tkinter to build simple GUI applications in Python. I created logic games (Snake, Tic-Tac-Toe, Minesweeper) and early versions of my own utility apps with it.",
+        "modal-skill-Python": "Python is one of my primary programming languages. I create backend (Django, Flask) and desktop (Tkinter) applications in it. I completed the Python Developer course at CodersLab and use Python in data analysis and automation projects.",
+        "modal-skill-Java": "I have been programming in Java since university. I created JavaFX applications (cinema seating reservation system) and a Spring Boot backend based on a REST API. I appreciate Java's flexibility and rich library ecosystem.",
+        "modal-skill-ASP_NET": "In ASP.NET, I created the backend for the 'Recipes' application in C#. The project included database integration and CRUD operations handling. I learned the basics of the framework and MVC application structure in Visual Studio 2022.",
+        "modal-skill-REST_API": "I have experience in creating and handling REST APIs, e.g., in the 'GitHub API' (Spring Boot) project, which fetched user repository data from GitHub. I am currently developing a weather app using OpenWeatherMap data.",
+        "modal-skill-Oracle": "I worked with the Oracle database during my studies, executing advanced SQL queries including sequences, triggers, and views. Thanks to this, I have a good understanding of relational data models and query optimization.",
+        "modal-skill-Postgres": "I know PostgreSQL, which I learned practically during the CodersLab course. I can create database structures, define relationships, and execute SQL queries. I easily adapted to this system thanks to my previous work with Oracle.",
+        "modal-skill-Linux": "I use Linux in my daily work and projects. I know basic bash commands, file and permission management, and task automation using scripts.",
+        "modal-skill-GitHub": "GitHub is my primary version control tool. I use it for individual and team work, managing branches, and deploying new features. I regularly use GitHub in private and educational projects.",
+        "modal-skill-Docker": "I know the basics of Docker and understand the concept of containerization. In the 'GitHub API' project, I created a container to run the Spring Boot app in an isolated environment. I know how to build images and run applications in containers.",
+        "modal-skill-JetBrains": "I use JetBrains tools (PyCharm, IntelliJ IDEA, Rider) daily. I value them for their intuitiveness, integration with GitHub and databases, and support for multiple programming languages.",
+        "modal-skill-Postman": "I use Postman to test REST API endpoints – both GET and POST. This helps me verify server responses and debug backend applications (including the 'GitHub API' project).",
+
+        // --- MODALE: PROJEKTY (PROJECTS) ---
+        "modal-sklep_django-title": "Django Store",
+        "modal-sklep_django-desc": `
+            <p class="mb-4">An advanced e-commerce store model created as a group university project.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Key features:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Shopping cart, order, and return system</li>
+                <li>Admin panel for product management</li>
+                <li>Review and rating system</li>
+                <li>Responsive design with animations</li>
+                <li>Viewing and editing existing orders</li>
+                <li>Automated SMTP email system support</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologies:</h4>
+            <p>Django, Brevo, Docker</p>
+        `,
+        "modal-przepisy-title": "Recipes",
+        "modal-przepisy-desc": `
+            <p class="mb-4">A group web application project of a recipe forum for a university assignment.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Key features:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>User account along with their owned ingredients</li>
+                <li>Adding and managing own recipes</li>
+                <li>Browsing and rating other users' recipes</li>
+                <li>Recipe search and filtering system, including filtering by ingredients owned by the user</li>
+                <li>Image upload and compression</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologies:</h4>
+            <p>ASP.NET, Visual Studio Code</p>
+        `,
+        "modal-github_api-title": "Github API",
+        "modal-github_api-desc": `
+            <p class="mb-4">A recruitment project aimed at automatically fetching a specific GitHub user's repositories, branches, and commit SHAs.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Key features:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Accessing the GitHub API at the backend level</li>
+                <li>Combining information from various GitHub APIs in the service layer</li>
+                <li>Handling different HTML error codes</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologies:</h4>
+            <p>Java, Spring Boot, REST API, Postman</p>
+        `,
+        "modal-django_weather-title": "Django Weather",
+        "modal-django_weather-desc": `
+            <p class="mb-4">An individual web weather application project that uses an API from a weather data provider and properly presents it to the user. The project is ongoing and currently in its early stages.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Planned key features:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Searching for cities to display their weather conditions</li>
+                <li>Adding and displaying user's favorite locations</li>
+                <li>Friendly and clear presentation of weather data</li>
+                <li>Filtering cities by expected weather conditions</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologies:</h4>
+            <p>Django, OpenWeather, ...</p>
+        `,
+        "modal-kino-title": "Cinema",
+        "modal-kino-desc": `
+            <p class="mb-4">A GUI application simulating cinema ticket reservations. It allows the user to visually select a screening room, time, and seats, and securely make a reservation. Written for a university assignment.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Key features:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Browsing room availability and screening times</li>
+                <li>Graphical interface for selecting seats and viewing the layout of each room</li>
+                <li>Clear visualization of selected, available, and taken seats</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologies:</h4>
+            <p>JavaFX, H2</p>
+        `,
+        "modal-portfolio-title": "Portfolio Website",
+        "modal-portfolio-desc": `
+            <p class="mb-4">This website was designed to showcase my education, projects, and IT industry experience.</p>
+            <h4 class="text-xl font-bold text-neon-blue mb-2">Key features:</h4>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Responsive design</li>
+                <li>Clear and eye-catching presentation of my strengths</li>
+                <li>Contact form to easily reach out to me</li>
+                <li>Dark mode and language switch for user convenience</li>
+                <li>Downloadable and consistently updated CV</li>
+            </ul>
+            <h4 class="text-xl font-bold text-neon-purple mb-2">Technologies:</h4>
+            <p>HTML, CSS, Javascript, npm, Tailwind, ...</p>
+        `
+    }
+};
+
+//obsługa zmiany stanu checkboxa z zachowaniem języka po odświeżeniu
+document.addEventListener("DOMContentLoaded",() => {
+    const engCheck = document.getElementById("toggle-lang");
+
+    if(currentLang === "en"){
+        engCheck.checked = true;
+    }else{
+        engCheck.checked = false;
+    }
+
+    applyLanguage(currentLang)
+
+    engCheck.addEventListener("change", () => {
+        const lang = engCheck.checked ? "en" : "pl";
+        currentLang = lang;
+        localStorage.setItem("lang", lang);
+        applyLanguage(lang)
+    });
+
+})
+
+function applyLanguage(lang) {
+    // 1. Podmiana statycznego HTML (szuka wszystkich atrybutów data-i18n)
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    // 2. Podmiana placeholderów w formularzu kontaktowym
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+        }
+    });
+
+}
 
 console.log('Portfolio loaded! ');

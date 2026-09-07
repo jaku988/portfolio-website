@@ -8,7 +8,7 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 <body class="bg-gray-900 overflow-x-hidden">
-    <!-- SKRYPT BLOKUJĄCY MRUGANIE (FOUC) -->
+    <!-- skrypt blokujący miganie przy odświeżaniu -->
     <script>
         if (localStorage.getItem('theme') === 'light') {
             document.body.classList.add('light-theme');
@@ -24,33 +24,33 @@
 
                 <!-- przyciski nawigacji -->
                 <div class="hidden md:flex space-x-6" id="nav-menu">
-                    <a href="#about" class="section-link">O mnie</a>
-                    <a href="#skills" class="section-link">Umiejętności</a>
-                    <a href="#projects" class="section-link">Projekty</a>
-                    <a href="#experience" class="section-link">Doświadczenie</a>
-                    <a href="#education" class="section-link">Edukacja</a>
-                    <a href="#contact" class="section-link">Kontakt</a>
+                    <a href="#about" class="section-link" data-i18n="nav-about">O mnie</a>
+                    <a href="#skills" class="section-link" data-i18n="nav-skills">Umiejętności</a>
+                    <a href="#projects" class="section-link" data-i18n="nav-projects">Projekty</a>
+                    <a href="#experience" class="section-link" data-i18n="nav-experience">Doświadczenie</a>
+                    <a href="#education" class="section-link" data-i18n="nav-education">Edukacja</a>
+                    <a href="#contact" class="section-link" data-i18n="nav-contact">Kontakt</a>
                 </div>
 
                 <div class="flex justify-between items-center space-x-8">
                     <!-- przycisk przełączania motywu -->
                     <div class="hidden md:block">
-                    <label>
-                        <input class="toggle-checkbox" type="checkbox" id="toggle-dark">
-                        <div class="toggle-slot">
-                            <div class="sun-icon-wrapper">
-                                <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+                        <label>
+                            <input class="toggle-checkbox" type="checkbox" id="toggle-dark">
+                            <div class="toggle-slot">
+                                <div class="sun-icon-wrapper">
+                                    <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+                                </div>
+                                <div class="toggle-button"></div>
+                                <div class="moon-icon-wrapper">
+                                    <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
+                                </div>
                             </div>
-                            <div class="toggle-button"></div>
-                            <div class="moon-icon-wrapper">
-                                <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
-                            </div>
-                        </div>
-                    </label>
-                </div>
+                        </label>
+                    </div>
                     <!-- Przycisk przełączania języka -->
                     <div class="flex items-center space-x-3">
-                        <label class="container">
+                        <label class="lang-container">
                             <input type="checkbox" id="toggle-lang">
                             <div class="checkmark"></div>
                         </label>
@@ -90,13 +90,13 @@
                         <h1 class="text-5xl md:text-7xl font-bold mb-6">
                             <span class="text-gradient text-blue-500">Jan Kulak</span>
                         </h1>
-                        <p class="text-xl md:text-2xl text-gray-300 mb-4">Junior Backend Developer</p>
-                        <p class="text-lg text-gray-400 mb-8">
+                        <p class="text-xl md:text-2xl text-gray-300 mb-4" data-i18n="hero-role">Junior Backend Developer</p>
+                        <p class="text-lg text-gray-400 mb-8" data-i18n="hero-desc">
                             Tworzę nowoczesne, responsywne aplikacje webowe z pasją do innowacji
                         </p>
                         <div class="flex gap-4 flex-wrap">
-                            <a href="#projects" class="btn-neon">Zobacz projekty</a>
-                            <a href="#contact" class="btn-neon border-neon-pink text-neon-pink hover:bg-neon-pink hover:shadow-neon-pink">Kontakt</a>
+                            <a href="#projects" class="btn-neon" data-i18n="hero-btn-projects">Zobacz projekty</a>
+                            <a href="#contact" class="btn-neon border-neon-pink text-neon-pink hover:bg-neon-pink hover:shadow-neon-pink" data-i18n="hero-btn-contact">Kontakt</a>
                         </div>
                     </div>
                 </div>
@@ -116,22 +116,22 @@
     <!-- Dane Osobowe -->
     <section id="about" class="py-20 relative">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16 neon-text animate-fade-in">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text animate-fade-in" data-i18n="about-title">
                 O mnie
             </h2>
             <div class="max-w-4xl mx-auto glass-card rounded-2xl p-8 animate-slide-up">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-2xl font-bold text-neon-blue mb-4">Dane osobowe</h3>
+                        <h3 class="text-2xl font-bold text-neon-blue mb-4" data-i18n="about-personal-title">Dane osobowe</h3>
                         <div class="space-y-3 text-gray-300">
-                            <p><span class="text-neon-pink">Imię i nazwisko:</span> Jan Kulak</p>
-                            <p><span class="text-neon-pink">Tytuł:</span> Junior Backend Developer</p>
-                            <p><span class="text-neon-pink">Lokalizacja:</span> Łódź, Polska</p>
+                            <p><span class="text-neon-pink" data-i18n="about-label-name">Imię i nazwisko:</span> Jan Kulak</p>
+                            <p><span class="text-neon-pink" data-i18n="about-label-role">Tytuł:</span> <span data-i18n="about-value-role">Junior Backend Developer</span></p>
+                            <p><span class="text-neon-pink" data-i18n="about-label-location">Lokalizacja:</span> <span data-i18n="about-value-location">Łódź, Polska</span></p>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-neon-purple mb-4">Bio</h3>
-                        <p class="text-gray-300 leading-relaxed">
+                        <h3 class="text-2xl font-bold text-neon-purple mb-4" data-i18n="about-bio-title">Bio</h3>
+                        <p class="text-gray-300 leading-relaxed" data-i18n="about-bio-desc">
                             Pasjonuję się tworzeniem nowoczesnych aplikacji webowych.
                             Specjalizuję się w React, Django i technologiach frontendowych.
                             Zawsze gotowy na nowe wyzwania i ciągły rozwój.
@@ -145,7 +145,7 @@
     <!-- Umiejętności -->
     <section id="skills" class="py-20 bg-gray-800 bg-opacity-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-center text-5xl neon-text mb-16 font-bold">
+            <h2 class="text-center text-5xl neon-text mb-16 font-bold" data-i18n="skills-title">
                 Umiejętności
             </h2>
 
@@ -154,7 +154,7 @@
 
                 <!-- 1 kategoria - Frontend -->
                 <div class="glass-card rounded-xl p-6 border-l-4">
-                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-8">
+                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-8" data-i18n="skills-cat-frontend">
                         Frontend
                     </h3>
 
@@ -205,15 +205,13 @@
                                 </div>
                                 <div><p class="neon-text">Tkinter</p></div>
                             </div>
-
                         </div>
 
                     </div>
-
                 </div>
                 <!-- 2 kategoria - Backend -->
                 <div class="glass-card rounded-xl p-6 border-l-4">
-                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-8">
+                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-8" data-i18n="skills-cat-backend">
                         Backend
                     </h3>
 
@@ -261,7 +259,7 @@
                 </div>
                 <!-- 3 kategoria - Bazy danych -->
                 <div class="glass-card rounded-xl p-6 border-l-4">
-                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-16">
+                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-16" data-i18n="skills-cat-db">
                         Bazy danych
                     </h3>
 
@@ -285,11 +283,10 @@
                             <div><p class="neon-text">PostgreSQL</p></div>
                         </div>
                     </div>
-
                 </div>
                 <!-- 4 kategoria - Narzędzia -->
                 <div class="glass-card rounded-xl p-6 border-l-4"   >
-                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-8">
+                    <h3 class="text-center text-2xl text-neon-blue font-bold mb-8" data-i18n="skills-cat-tools">
                         Narzędzia
                     </h3>
 
@@ -335,8 +332,8 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- Projekty -->
@@ -344,7 +341,7 @@
 
         <!-- Kontener sekcji -->
         <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-5xl font-bold text-center neon-text mb-20">
+            <h2 class="text-5xl font-bold text-center neon-text mb-20" data-i18n="projects-title">
                 Projekty
             </h2>
 
@@ -362,7 +359,7 @@
                             </div>
                             <div class="flex flex-col gap-3">
                                 <h1 class="text-2xl text-neon-pink font-bold">Sklep Django</h1>
-                                <p class="text-gray-300 text-sm sm:text-base">Grupowy projekt sklepu internetowego z wykorzystaniem technologii Django, Docker, Git, SMTP (Brevo).</p>
+                                <p class="text-gray-300 text-sm sm:text-base" data-i18n="project-sklep-desc">Grupowy projekt sklepu internetowego z wykorzystaniem technologii Django, Docker, Git, SMTP (Brevo).</p>
                             </div>
                         </div>
                     </div>
@@ -375,7 +372,7 @@
                             </div>
                             <div class="flex flex-col gap-3">
                                 <h1 class="text-2xl text-neon-pink font-bold">Przepisy</h1>
-                                <p class="text-gray-300 text-sm sm:text-base">Grupowy projekt serwisu z przepisami w ASP.NET z wykorzystaniem bazy danych w Visual Studio Code.</p>
+                                <p class="text-gray-300 text-sm sm:text-base" data-i18n="project-przepisy-desc">Grupowy projekt serwisu z przepisami w ASP.NET z wykorzystaniem bazy danych w Visual Studio Code.</p>
                             </div>
                         </div>
                     </div>
@@ -388,7 +385,7 @@
                             </div>
                             <div class="flex flex-col gap-3">
                                 <h1 class="text-2xl text-neon-pink font-bold">Github API</h1>
-                                <p class="text-gray-300 text-sm sm:text-base">Projekt aplikacji sieciowej stworzonej w Spring Boot i korzystający z REST API. Pobiera repozytoria użytkownika.</p>
+                                <p class="text-gray-300 text-sm sm:text-base" data-i18n="project-github-desc">Projekt aplikacji sieciowej stworzonej w Spring Boot i korzystający z REST API. Pobiera repozytoria użytkownika.</p>
                             </div>
                         </div>
                     </div>
@@ -406,7 +403,7 @@
                             </div>
                             <div class="flex flex-col gap-3">
                                 <h1 class="text-2xl text-neon-pink font-bold">Django Weather</h1>
-                                <p class="text-gray-300 text-sm sm:text-base">Będąca w początkowej fazie sieciowa aplikacja pogodowa łącząca technologie Django i REST API.</p>
+                                <p class="text-gray-300 text-sm sm:text-base" data-i18n="project-weather-desc">Będąca w początkowej fazie sieciowa aplikacja pogodowa łącząca technologie Django i REST API.</p>
                             </div>
                         </div>
                     </div>
@@ -419,7 +416,7 @@
                             </div>
                             <div class="flex flex-col gap-3">
                                 <h1 class="text-2xl text-neon-pink font-bold">Kino</h1>
-                                <p class="text-gray-300 text-sm sm:text-base">Indywidualny projekt JavaFX symulujący rezerwację biletów w kinie. Projekt zaliczeniowy w toku studiów.</p>
+                                <p class="text-gray-300 text-sm sm:text-base" data-i18n="project-kino-desc">Indywidualny projekt JavaFX symulujący rezerwację biletów w kinie. Projekt zaliczeniowy w toku studiów.</p>
                             </div>
                         </div>
                     </div>
@@ -432,7 +429,7 @@
                             </div>
                             <div class="flex flex-col gap-3">
                                 <h1 class="text-2xl text-neon-pink font-bold">Strona Portfolio</h1>
-                                <p class="text-gray-300 text-sm sm:text-base">Moja interaktywna wizytówka internetowa.</p>
+                                <p class="text-gray-300 text-sm sm:text-base" data-i18n="project-portfolio-desc">Moja interaktywna wizytówka internetowa.</p>
                             </div>
                         </div>
                     </div>
@@ -445,7 +442,7 @@
     <!-- Doświadczenie -->
     <section id="experience" class="py-20 bg-gray-800 bg-opacity-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16 neon-text">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text" data-i18n="exp-title">
                 Doświadczenie
             </h2>
             <div class="max-w-4xl mx-auto">
@@ -460,19 +457,19 @@
                         <div class="glass-card rounded-xl p-6 border-l-4 border-neon-blue hover:scale-105 transition-transform duration-300">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-2xl font-bold text-neon-blue">Praktykant w dziale it</h3>
+                                    <h3 class="text-2xl font-bold text-neon-blue" data-i18n="exp-job-title">Praktykant w dziale it</h3>
                                     <p class="text-xl text-gray-300">Polska Grupa Farmaceutyczna S.A.</p>
                                 </div>
                                 <span class="text-neon-pink font-semibold">07.2024-08.2024</span>
                             </div>
                             <ul class="list-disc p-5 text-blue-400">
-                                <li>Automatyzacja i skrypty w Pythonie</li>
-                                <li>Praca z relacyjnymi bazami danych</li>
-                                <li>Zrozumienie procesów klasy Enterprise</li>
-                                <li>Współpraca interdyscyplinarna</li>
-                                <li>Analiza i diagnoza problemów technicznych</li>
+                                <li data-i18n="exp-task-1">Automatyzacja i skrypty w Pythonie</li>
+                                <li data-i18n="exp-task-2">Praca z relacyjnymi bazami danych</li>
+                                <li data-i18n="exp-task-3">Zrozumienie procesów klasy Enterprise</li>
+                                <li data-i18n="exp-task-4">Współpraca interdyscyplinarna</li>
+                                <li data-i18n="exp-task-5">Analiza i diagnoza problemów technicznych</li>
                             </ul>
-                            <p class="text-sm text-neon-green">Łódź, Polska</p>
+                            <p class="text-sm text-neon-green" data-i18n="exp-location">Łódź, Polska</p>
                         </div>
                     </div>
                 </div>
@@ -485,7 +482,7 @@
     <section id="education" class="py-20">
         <!-- Główny kontener -->
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16 neon-text">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text" data-i18n="edu-title">
                 Edukacja
             </h2>
 
@@ -506,17 +503,17 @@
                     <!-- prawa strona -->
                     <div class="flex-1 p-6">
                         <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-neon-pink">Profil matematyczno - fizyczny</h3>
-                                <p class="text-xl text-gray-300">II Liceum Ogólnokształcące im. Stefana Żeromskiego</p>
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-neon-pink" data-i18n="edu-hs-title">Profil matematyczno - fizyczny</h3>
+                                    <p class="text-xl text-gray-300">II Liceum Ogólnokształcące im. Stefana Żeromskiego</p>
+                                </div>
+                                <span class="text-neon-blue font-semibold">2018 - 2021</span>
                             </div>
-                            <span class="text-neon-blue font-semibold">2018 - 2021</span>
+                            <p class="text-gray-400 mb-3" data-i18n="edu-hs-desc">
+                                Wykształcenie średnie na profilu matematyczno - fizycznym
+                            </p>
                         </div>
-                        <p class="text-gray-400 mb-3">
-                            Wykształcenie średnie na profilu matematyczno - fizycznym
-                        </p>
-                    </div>
                     </div>
                 </div>
 
@@ -536,15 +533,15 @@
                         <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h3 class="text-2xl font-bold text-neon-pink">Informatyka - Studia I Stopnia</h3>
-                                    <p class="text-xl text-gray-300">Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego</p>
+                                    <h3 class="text-2xl font-bold text-neon-pink" data-i18n="edu-bsc-title">Informatyka - Studia I Stopnia</h3>
+                                    <p class="text-xl text-gray-300" data-i18n="edu-bsc-school">Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego</p>
                                 </div>
                                 <span class="text-neon-blue font-semibold">2021 - 2024</span>
                             </div>
-                            <p class="text-gray-400 mb-3">
+                            <p class="text-gray-400 mb-3" data-i18n="edu-bsc-desc">
                                 Obrona pracy licencjackiej "Charakteryzacja Myhilla-Nerode'a języków regularnych"
                             </p>
-                            <p class="text-neon-green mt-6">
+                            <p class="text-neon-green mt-6" data-i18n="edu-bsc-spec">
                                 Specjalizacja: Sieci i Przetwarzanie Danych
                             </p>
                         </div>
@@ -566,15 +563,15 @@
                         <div class="glass-card rounded-xl p-6 border-l-4 border-neon-pink hover:scale-105 transition-transform duration-300">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h3 class="text-2xl font-bold text-neon-pink">Informatyka - Studia II Stopnia</h3>
-                                    <p class="text-xl text-gray-300">Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego</p>
+                                    <h3 class="text-2xl font-bold text-neon-pink" data-i18n="edu-msc-title">Informatyka - Studia II Stopnia</h3>
+                                    <p class="text-xl text-gray-300" data-i18n="edu-msc-school">Wydział Matematyki i Informatyki Uniwersytetu Łódzkiego</p>
                                 </div>
-                                <span class="text-neon-blue font-semibold">2025 - Obecnie</span>
+                                <span class="text-neon-blue font-semibold" data-i18n="edu-msc-date">2025 - Obecnie</span>
                             </div>
-                            <p class="text-gray-400 mb-3">
+                            <p class="text-gray-400 mb-3" data-i18n="edu-msc-desc">
                                 Obecnie jestem na ostatnim roku studiów magisterskich i wybieram temat pracy magisterskiej
                             </p>
-                            <p class="text-neon-green mt-6">
+                            <p class="text-neon-green mt-6" data-i18n="edu-msc-spec">
                                 Specjalizacja: Informatyka Ogólna
                             </p>
                         </div>
@@ -583,7 +580,7 @@
 
                 <!-- Kursy -->
                 <div class="glass-card rounded-xl p-8 border-l-4 border-neon-green hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-2xl font-bold text-neon-green mb-4">Dodatkowe kursy</h3>
+                    <h3 class="text-2xl font-bold text-neon-green mb-4" data-i18n="edu-courses-title">Dodatkowe kursy</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li class="flex items-center">
                             <span class="w-2 h-2 bg-neon-pink rounded-full mr-3"></span>
@@ -602,13 +599,13 @@
     <!-- Kontakt -->
     <section id="contact" class="py-20 bg-gray-800 bg-opacity-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16 neon-text">
+            <h2 class="text-5xl font-bold text-center mb-16 neon-text" data-i18n="contact-title">
                 Kontakt
             </h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
                 <!-- Dane kontaktowe -->
                 <div class="glass-card rounded-xl p-8">
-                    <h3 class="text-2xl font-bold text-neon-blue mb-6">Dane kontaktowe</h3>
+                    <h3 class="text-2xl font-bold text-neon-blue mb-6" data-i18n="contact-info-title">Dane kontaktowe</h3>
                     <div class="space-y-4">
                         <a href="mailto:kulak.jan0@gmail.com" class="flex items-center text-gray-300 hover:text-neon-pink transition-colors">
                             <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -633,21 +630,21 @@
 
                 <!-- Formularz kontaktowy -->
                 <div class="glass-card rounded-xl p-8">
-                    <h3 class="text-2xl font-bold text-neon-pink mb-6">Wyślij wiadomość</h3>
+                    <h3 class="text-2xl font-bold text-neon-pink mb-6" data-i18n="contact-form-title">Wyślij wiadomość</h3>
                     <form id="contact-form" class="space-y-4">
                         <div>
-                            <input type="text" placeholder="Imię" required
+                            <input type="text" placeholder="Imię" required data-i18n-placeholder="contact-placeholder-name"
                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-neon-blue focus:outline-none text-white transition-colors">
                         </div>
                         <div>
-                            <input type="email" placeholder="Email" required
+                            <input type="email" placeholder="Email" required data-i18n-placeholder="contact-placeholder-email"
                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-neon-blue focus:outline-none text-white transition-colors">
                         </div>
                         <div>
-                            <textarea placeholder="Wiadomość" rows="4" required
-                                      class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-neon-blue focus:outline-none text-white transition-colors resize-none"></textarea>
+                                    <textarea placeholder="Wiadomość" rows="4" required data-i18n-placeholder="contact-placeholder-msg"
+                                              class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-neon-blue focus:outline-none text-white transition-colors resize-none"></textarea>
                         </div>
-                        <button type="submit" class="btn-neon w-full border-neon-pink text-neon-pink hover:bg-neon-pink hover:shadow-neon-pink">
+                        <button type="submit" class="btn-neon w-full border-neon-pink text-neon-pink hover:bg-neon-pink hover:shadow-neon-pink" data-i18n="contact-btn-send">
                             Wyślij
                         </button>
                     </form>
@@ -660,7 +657,7 @@
     <footer class="py-8 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">
-                &copy; 2026 <span class="text-neon-blue">Jan Kulak</span>. Wszystkie prawa zastrzeżone.
+                &copy; 2026 <span class="text-neon-blue">Jan Kulak</span>. <span data-i18n="footer-rights">Wszystkie prawa zastrzeżone.</span>
             </p>
         </div>
     </footer>
@@ -698,9 +695,7 @@
             <div class="flex-col justify-center items-center gap-8 mb-6">
                 <div id="skill-modal-icon" class="flex flex-col items-center gap-4">
                     <div class="w-32 h-32 bg-gradient-to-tr from-white to-blue-300 rounded-full flex items-center justify-center p-5 inset-shadow-pink-500">
-                        <svg viewBox="0 0 128 128">
-                            <path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"></path><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"></path><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"></path><path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z"></path><path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"></path><path fill="#EBEBEB" d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z"></path>
-                        </svg>
+                        <!-- SVG placeholder -->
                     </div>
                     <div><p class="neon-text text-3xl">CSS</p></div>
                 </div>

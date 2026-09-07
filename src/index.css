@@ -330,7 +330,7 @@ body.light-theme .shadow-neon-pink {
 }
 
 /* Hide the default checkbox */
-.container input {
+.lang-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -338,7 +338,7 @@ body.light-theme .shadow-neon-pink {
     width: 0;
 }
 
-.container {
+.lang-container {
     display: block;
     position: relative;
     cursor: pointer;
@@ -359,7 +359,7 @@ body.light-theme .shadow-neon-pink {
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.lang-container input:checked ~ .checkmark {
     background-color: #47da99;
     animation: pop 0.5s;
     animation-direction: alternate;
@@ -373,12 +373,12 @@ body.light-theme .shadow-neon-pink {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.lang-container input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.lang-container .checkmark:after {
     left: 0.45em;
     top: 0.25em;
     width: 0.25em;
