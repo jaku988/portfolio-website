@@ -389,22 +389,54 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Contact form
-document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Tutaj dodaj logikę wysyłania formularza
-    alert('Formularz zostanie wkrótce zintegrowany z backendem!');
-
-    // Animacja sukcesu
     const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = 'Wysłano!';
-    btn.classList.add('bg-neon-green', 'text-gray-900');
+    const originalBtnText = btn.textContent;
+    btn.textContent = currentLang === 'en' ? 'Sending...' : 'Wysyłanie...';
 
+    // Pobranie wartości z inputów
+    const inputs = e.target.querySelectorAll('input, textarea');
+    const formData = {
+        name: inputs[0].value,
+        email: inputs[1].value,
+        message: inputs[2].value
+    };
+
+    try {
+        // Wysyłanie żądania POST do Twojego Django
+        const response = await fetch('http://127.0.0.1:8000/api/contact/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Sukces
+            btn.textContent = currentLang === 'en' ? 'Sent!' : 'Wysłano!';
+            btn.classList.add('!bg-emerald-500', '!text-gray-900', '!border-emerald-500', 'shadow-none');
+            e.target.reset();
+        } else {
+            // Błąd ze strony serwera
+            throw new Error(data.message || 'Błąd serwera');
+        }
+    } catch (error) {
+        // Błąd połączenia / błąd w bloku try
+        console.error("Błąd wysyłania:", error);
+        btn.textContent = currentLang === 'en' ? 'Error' : 'Błąd';
+        btn.classList.add('!bg-red-500', '!text-white', '!border-red-500', 'shadow-none');
+    }
+
+    // Powrót do pierwotnego wyglądu przycisku po 3 sekundach
     setTimeout(() => {
-        btn.textContent = 'Wyślij';
-        btn.classList.remove('bg-neon-green', 'text-gray-900');
-        e.target.reset();
-    }, 2000);
+        btn.textContent = originalBtnText;
+        btn.classList.remove('!bg-emerald-500', '!text-gray-900', '!border-emerald-500', '!bg-red-500', '!text-white', '!border-red-500', 'shadow-none');
+    }, 1500);
 });
 
 // Parallax effect dla hero section
