@@ -1,4 +1,4 @@
-// Mobile menu toggle
+// Mobilne menu
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const navMenu = document.getElementById('nav-menu');
 
@@ -388,7 +388,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Contact form
+// formularz kontaktowy
 document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -396,7 +396,7 @@ document.getElementById('contact-form')?.addEventListener('submit', async (e) =>
     const originalBtnText = btn.textContent;
     btn.textContent = currentLang === 'en' ? 'Sending...' : 'Wysyłanie...';
 
-    // Pobranie wartości z inputów
+    // pobranie wartości z inputów
     const inputs = e.target.querySelectorAll('input, textarea');
     const formData = {
         name: inputs[0].value,
@@ -405,7 +405,7 @@ document.getElementById('contact-form')?.addEventListener('submit', async (e) =>
     };
 
     try {
-        // Wysyłanie żądania POST do Twojego Django
+        // wysyłanie żądania POST do backendu
         const response = await fetch('http://127.0.0.1:8000/api/contact/', {
             method: 'POST',
             headers: {
@@ -417,29 +417,28 @@ document.getElementById('contact-form')?.addEventListener('submit', async (e) =>
         const data = await response.json();
 
         if (response.ok) {
-            // Sukces
+            // sukces
             btn.textContent = currentLang === 'en' ? 'Sent!' : 'Wysłano!';
             btn.classList.add('!bg-emerald-500', '!text-gray-900', '!border-emerald-500', 'shadow-none');
             e.target.reset();
         } else {
-            // Błąd ze strony serwera
+            // błąd ze strony serwera
             throw new Error(data.message || 'Błąd serwera');
         }
     } catch (error) {
-        // Błąd połączenia / błąd w bloku try
+        // błąd połączenia
         console.error("Błąd wysyłania:", error);
         btn.textContent = currentLang === 'en' ? 'Error' : 'Błąd';
         btn.classList.add('!bg-red-500', '!text-white', '!border-red-500', 'shadow-none');
     }
 
-    // Powrót do pierwotnego wyglądu przycisku po 3 sekundach
+    // powrót do pierwotnego wyglądu przycisku po 3 sekundach
     setTimeout(() => {
         btn.textContent = originalBtnText;
         btn.classList.remove('!bg-emerald-500', '!text-gray-900', '!border-emerald-500', '!bg-red-500', '!text-white', '!border-red-500', 'shadow-none');
     }, 1500);
 });
 
-// Parallax effect dla hero section
 window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     const parallaxElements = document.querySelectorAll('#hero .absolute');
@@ -450,7 +449,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Typing effect (opcjonalnie)
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.textContent = '';
@@ -466,11 +464,10 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Particle effect
-
 /**************************************************************
                        ZMIANA MOTYWU
 ***************************************************************/
+
 document.addEventListener('DOMContentLoaded', () => {
     const toggleDark = document.getElementById('toggle-dark');
 
@@ -858,7 +855,7 @@ document.addEventListener("DOMContentLoaded",() => {
 })
 
 function applyLanguage(lang) {
-    // 1. Podmiana statycznego HTML (szuka wszystkich atrybutów data-i18n)
+    // podmiana HTML
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
@@ -866,7 +863,7 @@ function applyLanguage(lang) {
         }
     });
 
-    // 2. Podmiana placeholderów w formularzu kontaktowym
+    // podmiana placeholderów w formularzu kontaktowym
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
         if (translations[lang] && translations[lang][key]) {
